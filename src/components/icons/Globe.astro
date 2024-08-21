@@ -1,0 +1,35 @@
+---
+// IconCircle.astro
+const { class: className = "", ariaHidden = true, ...props } = Astro.props;
+---
+
+<svg
+    viewBox="0 0 16 16"
+    fill="none"
+    class={className}
+    aria-hidden={ariaHidden}
+    {...props}
+>
+    <g clip-path="url(#clip0_176_156)">
+        <path
+            d="M7.99978 15.1111C11.9271 15.1111 15.1109 11.9274 15.1109 8.00003C15.1109 4.07267 11.9271 0.888916 7.99978 0.888916C4.07242 0.888916 0.888672 4.07267 0.888672 8.00003C0.888672 11.9274 4.07242 15.1111 7.99978 15.1111Z"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        <path
+            d="M0.888672 8H15.1109"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        <path
+            d="M7.99972 0.888916C9.77841 2.83619 10.7892 5.36325 10.8442 8.00003C10.7892 10.6368 9.77841 13.1639 7.99972 15.1111C6.22103 13.1639 5.2102 10.6368 5.15527 8.00003C5.2102 5.36325 6.22103 2.83619 7.99972 0.888916Z"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+    </g>
+    <defs>
+        <clipPath id="clip0_176_156">
+            <rect width="16" height="16" fill="white"></rect>
+        </clipPath>
+    </defs>
+</svg>
