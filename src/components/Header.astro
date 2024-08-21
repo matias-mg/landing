@@ -1,0 +1,224 @@
+<div
+  class="sticky top-0 px-8 pt-6 lg:pt-6 flex items-center justify-between text-blue-300 font-medium text-sm tracking-wide"
+>
+  <p class="flex items-center text-2xl font-semibold text-blue-100">
+    mat-dev
+  </p><div class="flex items-center">
+    <div class="-my-1 ml-2 -mr-1 md:hidden">
+      <button
+        id="portal-button"
+        type="button"
+        class="text-slate-500 w-8 h-8 flex items-center justify-center hover:text-blue-100"
+        ><svg width="24" height="24" fill="none" aria-hidden="true"
+          ><path
+            d="M12 6v.01M12 12v.01M12 18v.01M12 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path></svg
+        ></button
+      ><div
+        hidden=""
+        style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none"
+      >
+      </div>
+    </div><div class="hidden md:flex items-center">
+      <nav>
+        <ul
+          class="flex items-center [&>a]:transition-colors [&>a]:cursor-pointer"
+        >
+          <li>
+            <a class="hover:text-blue-100 p-4" href="#home">Home</a>
+          </li><li>
+            <a href="#experience" class="hover:text-blue-100 p-4">Experience</a>
+          </li><li>
+            <a class="hover:text-blue-100 p-4" href="#technologies"
+              >Technologies</a
+            >
+          </li><li>
+            <a class="hover:text-blue-100 p-4" href="/contact">Contact</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="flex items-center border-l ml-3 pl-2 border-blue-950">
+        <div class="ml-3 block hover:text-blue-100">
+          <svg
+            viewBox="0 0 16 16"
+            fill="none"
+            class="size-5 font-extrabold"
+            aria-hidden="true"
+          >
+            <g clip-path="url(#clip0_176_156)">
+              <path
+                d="M7.99978 15.1111C11.9271 15.1111 15.1109 11.9274 15.1109 8.00003C15.1109 4.07267 11.9271 0.888916 7.99978 0.888916C4.07242 0.888916 0.888672 4.07267 0.888672 8.00003C0.888672 11.9274 4.07242 15.1111 7.99978 15.1111Z"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+              <path
+                d="M0.888672 8H15.1109"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+              <path
+                d="M7.99972 0.888916C9.77841 2.83619 10.7892 5.36325 10.8442 8.00003C10.7892 10.6368 9.77841 13.1639 7.99972 15.1111C6.22103 13.1639 5.2102 10.6368 5.15527 8.00003C5.2102 5.36325 6.22103 2.83619 7.99972 0.888916Z"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </g>
+            <defs>
+              <clipPath id="clip0_176_156">
+                <rect width="16" height="16" fill="white"></rect>
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div id="portal-container" data-headlessui-portal="" class="hidden">
+    <button
+      type="button"
+      data-headlessui-focus-guard="true"
+      aria-hidden="true"
+      style="position: fixed; top: 1px; left: 1px; width: 1px; height: 0px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;"
+    ></button><div>
+      <div
+        class="fixed z-50 inset-0 md:hidden"
+        id="portal-dialog"
+        role="dialog"
+        tabindex="-1"
+        aria-modal="true"
+        data-headlessui-state="open"
+        data-open=""
+      >
+        <div
+          class="fixed inset-0 bg-black/20 backdrop-blur-sm"
+        >
+        </div><div
+          class="fixed top-4 right-4 w-full max-w-xs bg-blue-950 rounded-lg shadow-lg p-6 text-l font-normal text-blue-300"
+          id="headlessui-dialog-panel-:rg:"
+          data-headlessui-state="open"
+          data-open=""
+        >
+          <button
+            id="inner-portal-button"
+            type="button"
+            class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center text-blue-300 hover:text-blue-100"
+            ><span class="sr-only">Close navigation</span><svg
+              viewBox="0 0 10 10"
+              class="w-2.5 h-2.5 overflow-visible"
+              aria-hidden="true"
+              ><path
+                d="M0 0L10 10M10 0L0 10"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"></path></svg
+            ></button
+          ><ul class="space-y-6">
+            <li>
+              <a class="hover:text-sky-500" href="#home"
+                >Home</a
+              >
+            </li><li>
+              <a
+                href="#experience"
+                class="hover:text-sky-500">Experience</a
+              >
+            </li><li>
+              <a
+                class="hover:text-sky-500"
+                href="#technologies">Technologies</a
+              >
+            </li><li>
+              <a
+                class="hover:text-sky-500"
+                href="#contact">Contact</a
+              >
+            </li>
+          </ul><div
+            class="mt-6 pt-6 border-t border-slate-700"
+          >
+            <div class="flex items-center justify-between">
+              <label
+                for="theme"
+                class="text-blue-300 font-light"
+                >Select language</label
+              ><div
+                class="relative flex items-center ring-1 ring-slate-600 bg-slate-700 rounded-lg shadow-sm p-2 text-blue-100 font-semibold"
+              >
+                <svg
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  class="size-5 mr-2"
+                  aria-hidden="true"
+                >
+                  <g clip-path="url(#clip0_176_156)">
+                    <path
+                      d="M7.99978 15.1111C11.9271 15.1111 15.1109 11.9274 15.1109 8.00003C15.1109 4.07267 11.9271 0.888916 7.99978 0.888916C4.07242 0.888916 0.888672 4.07267 0.888672 8.00003C0.888672 11.9274 4.07242 15.1111 7.99978 15.1111Z"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+                    <path
+                      d="M0.888672 8H15.1109"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+                    <path
+                      d="M7.99972 0.888916C9.77841 2.83619 10.7892 5.36325 10.8442 8.00003C10.7892 10.6368 9.77841 13.1639 7.99972 15.1111C6.22103 13.1639 5.2102 10.6368 5.15527 8.00003C5.2102 5.36325 6.22103 2.83619 7.99972 0.888916Z"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_176_156">
+                      <rect width="16" height="16" fill="white"></rect>
+                    </clipPath>
+                  </defs>
+                </svg>
+                English<svg class="w-6 h-6 ml-2 text-blue-500" fill="none"
+                  ><path
+                    d="m15 11-3 3-3-3"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path></svg
+                >
+                <select
+                  id="theme"
+                  class="absolute appearance-none inset-0 w-full h-full opacity-0"
+                >
+                  <option value="en">English</option>
+                  <option value="es">Español</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><button
+      type="button"
+      data-headlessui-focus-guard="true"
+      aria-hidden="true"
+      style="position: fixed; top: 1px; left: 1px; width: 1px; height: 0px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;"
+    ></button>
+  </div>
+</div>
+
+<script>
+  const portal = document.querySelector("#portal-container");
+  const portalButton = document.getElementById("portal-button");
+  const portalDialog = document.getElementById("portal-dialog");
+  const innerPortalButton = document.getElementById("inner-portal-button");
+
+  function togglePortal() {
+    portal.classList.toggle("hidden");
+  }
+
+  portalButton.addEventListener("click", togglePortal);
+  innerPortalButton.addEventListener("click", togglePortal);
+  // portalDialog.addEventListener("click", togglePortal);
+</script>
