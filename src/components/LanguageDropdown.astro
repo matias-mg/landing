@@ -3,7 +3,7 @@ const { id = "language-dropdown-dialog", ...props } = Astro.props;
 ---
 
 <div
-    class="hidden absolute z-50 top-full right-0 bg-white rounded-lg ring-1 ring-slate-900/10 shadow-lg overflow-hidden w-36 py-1 text-sm text-slate-700 font-semibold dark:bg-slate-800 dark:ring-0 dark:highlight-white/5 dark:text-slate-300 mt-4"
+    class="hidden absolute z-50 top-full right-0 rounded-md ring-slate-900/10 shadow-lg overflow-hidden w-36 py-1 text-sm font-semibold bg-blue-950 ring-0 highlight-white/5 text-blue-300 border-2 border-slate-700 mt-4"
     id={id}
     aria-orientation="vertical"
     role="listbox"
@@ -13,15 +13,15 @@ const { id = "language-dropdown-dialog", ...props } = Astro.props;
     {...props}
 >
     <div
-        class="py-1 px-2 flex items-center cursor-pointer"
+        class="py-2 px-4 flex items-center cursor-pointer hover:text-blue-100"
         role="option"
         tabindex="-1"
         aria-selected="false"
     >
-        English
+        English <svg width="14" height="12" viewBox="0 0 11 9" fill="none"><g><rect x="2.10889" y="7.03003" width="10" height="2" transform="rotate(-44.6688 2.10889 7.03003)"></rect><rect x="1.42236" y="3.48999" width="5" height="2" transform="rotate(45.3312 1.42236 3.48999)"></rect></g></svg>
     </div>
     <div
-        class="py-1 px-2 flex items-center cursor-pointer"
+        class="py-2 px-4 flex items-center cursor-pointer hover:text-blue-100"
         role="option"
         tabindex="-1"
         aria-selected="false"
@@ -29,7 +29,7 @@ const { id = "language-dropdown-dialog", ...props } = Astro.props;
         Español
     </div>
     <div
-        class="py-1 px-2 flex items-center cursor-pointer"
+        class="py-2 px-4 flex items-center cursor-pointer hover:text-blue-100"
         role="option"
         tabindex="-1"
         aria-selected="false"
