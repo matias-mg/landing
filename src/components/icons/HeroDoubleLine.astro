@@ -1,0 +1,16 @@
+---
+const { class: className = "", ...props } = Astro.props;
+---
+
+<svg
+    width="10"
+    height="49"
+    viewBox="0 0 10 49"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    class={className}
+    {...props}
+>
+    <rect width="2" height="49" rx="1" fill="currentColor"></rect>
+    <rect x="8" y="24" width="2" height="25" rx="1" fill="currentColor"></rect>
+</svg>

@@ -2,15 +2,18 @@
 import DownloadIcon from "./icons/DownloadIcon.astro";
 import LinkedInIcon from "./icons/LinkedInIcon.astro";
 import HoverButton from "./HoverButton.astro";
+import HeroBigShape from "./icons/HeroBigShape.astro";
+import HeroDoubleLine from "./icons/HeroDoubleLine.astro";
 ---
 
 <section
     id="home"
-    class="flex w-screen max-w-5xl mx-auto pt-20 sm:pt-24 lg:pt-32"
+    class="relative flex justify-between w-screen max-w-5xl mx-auto pt-20 sm:pt-24 lg:pt-32"
 >
-    <div class="min-h-[290px]">
-        <h1 class="max-w-2xl text-4xl font-semibold md:text-4xl text-blue-50">
+    <div>
+        <h1 class="relative max-w-2xl text-4xl font-semibold md:text-4xl text-blue-50">
             Matías Medina
+            <HeroDoubleLine class="absolute top-0 -left-[130px] text-blue-600" />
         </h1>
         <h2 class="mb-2 font-base text-lg text-gray-500 md:text-lg">
             UX/UI React Developer
@@ -23,16 +26,28 @@ import HoverButton from "./HoverButton.astro";
             with a focus on continuous improvement and team collaboration.
         </p>
         <div class="flex items-center gap-4">
-            <HoverButton href="https://drive.google.com/file/d/1lkNuPJ0Ru5QMC16KDlE1V91WxtB9aahA/view?usp=drive_link">
+            <HoverButton
+                href="https://drive.google.com/file/d/1lkNuPJ0Ru5QMC16KDlE1V91WxtB9aahA/view?usp=drive_link"
+            >
                 Download CV
                 <DownloadIcon class="ml-2 size-4" />
             </HoverButton>
-            <HoverButton py="py-0" px="px-0" size="size-11" href="https://www.linkedin.com/in/matiasmg/">
+            <HoverButton
+                py="py-0"
+                px="px-0"
+                size="size-11"
+                href="https://www.linkedin.com/in/matiasmg/"
+                ariaLabel="LinkedIn Icon"
+            >
                 <LinkedInIcon class="size-4" />
             </HoverButton>
         </div>
     </div>
-    <div class="object-right ml-auto my-auto">
+    <div class="relative object-right ml-auto my-auto">
         <img src="profile-pic.webp" class="size-60 rounded-full" alt="mockup" />
+        <HeroDoubleLine class="absolute -bottom-[130px] -right-[130px] text-blue-600 scale-x-[-1]" />
     </div>
+    <HeroBigShape
+        class="absolute -z-10 top-0 -right-80 size-[720px] filter blur-[110px] animate-blob opacity-20 text-blue-600"
+    />
 </section>

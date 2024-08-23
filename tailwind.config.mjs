@@ -23,6 +23,25 @@ export default {
 					900: '#121718', // Slate background
 				},
 			},
+			animation: {
+				blob: "blob 5s infinite",
+			},
+			keyframes: {
+				blob: {
+					"0%": {
+						transform: "translate(0px, 0px)",
+					},
+					"33%": {
+						transform: "translate(30px, -35px)",
+					},
+					"66%": {
+						transform: "translate(-20px, 20px)",
+					},
+					"100%": {
+						transform: "tranlate(0px, 0px)",
+					},
+				},
+			},
 		}
 	},
 	plugins: [
