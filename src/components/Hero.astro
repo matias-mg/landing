@@ -11,15 +11,23 @@ import HeroDoubleLine from "./icons/HeroDoubleLine.astro";
     class="relative flex justify-between w-screen max-w-5xl mx-auto pt-20 sm:pt-24 lg:pt-32"
 >
     <div>
-        <h1 class="relative max-w-2xl text-4xl font-semibold md:text-4xl text-blue-50">
+        <h1
+            class="relative max-w-2xl text-4xl font-semibold md:text-4xl text-blue-50"
+        >
             Matías Medina
-            <HeroDoubleLine class="absolute top-0 -left-[130px] text-blue-600" />
+            <HeroDoubleLine
+                class="absolute top-0 -left-[130px] text-blue-600"
+            />
         </h1>
         <h2 class="mb-2 font-base text-lg text-gray-500 md:text-lg">
             UX/UI React Developer
         </h2>
+        <span
+            class="bg-blue-600 text-blue-50 text-sm font-light me-2 py-1.5 px-4 rounded-full h-[26px]"
+            >Open to Work</span
+        >
         <p
-            class="max-w-2xl my-6 font-light lg:mb-8 md:text-lg lg:text-lg text-blue-300"
+            class="max-w-2xl my-6 font-light lg:mb-8 md:text-lg text-blue-300 md:leading-6"
         >
             Hello! I’m a frontend developer with 4 years of experience in React
             and team leadership skills. I create intuitive and efficient UI,
@@ -30,7 +38,7 @@ import HeroDoubleLine from "./icons/HeroDoubleLine.astro";
                 href="https://drive.google.com/file/d/1lkNuPJ0Ru5QMC16KDlE1V91WxtB9aahA/view?usp=drive_link"
             >
                 Download CV
-                <DownloadIcon class="ml-2 size-4" />
+                <DownloadIcon class="ml size-4" />
             </HoverButton>
             <HoverButton
                 py="py-0"
@@ -44,10 +52,15 @@ import HeroDoubleLine from "./icons/HeroDoubleLine.astro";
         </div>
     </div>
     <div class="relative object-right ml-auto my-auto">
-        <img src="profile-pic.webp" class="size-60 rounded-full" alt="mockup" />
-        <HeroDoubleLine class="absolute -bottom-[130px] -right-[130px] text-blue-600 scale-x-[-1]" />
+        <div class="size-60 rounded-full border-2 border-blue-600 border-opacity-30">
+            <img src="profile-pic.webp" class="size-full rounded-full" alt="Profile picture" />
+            <div class="absolute top-0 right-0 rounded-full border border-blue-600 size-[250px]"></div>
+        </div>
+        <HeroDoubleLine
+            class="absolute -bottom-20 -right-[130px] text-blue-600 scale-x-[-1]"
+        />
     </div>
     <HeroBigShape
-        class="absolute -z-10 top-0 -right-80 size-[720px] filter blur-[110px] animate-blob opacity-20 text-blue-600"
+        class="absolute -z-10 top-0 -right-72 size-[720px] filter blur-[110px] animate-blob opacity-20 text-blue-600"
     />
 </section>

@@ -24,7 +24,7 @@ export default {
 				},
 			},
 			animation: {
-				blob: "blob 5s infinite",
+				blob: "blob 6s infinite",
 			},
 			keyframes: {
 				blob: {
@@ -32,7 +32,7 @@ export default {
 						transform: "translate(0px, 0px)",
 					},
 					"33%": {
-						transform: "translate(30px, -35px)",
+						transform: "translate(30px, -50px)",
 					},
 					"66%": {
 						transform: "translate(-20px, 20px)",
