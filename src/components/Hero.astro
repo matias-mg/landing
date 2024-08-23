@@ -1,0 +1,38 @@
+---
+import DownloadIcon from "./icons/DownloadIcon.astro";
+import LinkedInIcon from "./icons/LinkedInIcon.astro";
+import HoverButton from "./HoverButton.astro";
+---
+
+<section
+    id="home"
+    class="flex w-screen max-w-5xl mx-auto pt-20 sm:pt-24 lg:pt-32"
+>
+    <div class="min-h-[290px]">
+        <h1 class="max-w-2xl text-4xl font-semibold md:text-4xl text-blue-50">
+            Matías Medina
+        </h1>
+        <h2 class="mb-2 font-base text-lg text-gray-500 md:text-lg">
+            UX/UI React Developer
+        </h2>
+        <p
+            class="max-w-2xl my-6 font-light lg:mb-8 md:text-lg lg:text-lg text-blue-300"
+        >
+            Hello! I’m a frontend developer with 4 years of experience in React
+            and team leadership skills. I create intuitive and efficient UI,
+            with a focus on continuous improvement and team collaboration.
+        </p>
+        <div class="flex items-center gap-4">
+            <HoverButton href="https://drive.google.com/file/d/1lkNuPJ0Ru5QMC16KDlE1V91WxtB9aahA/view?usp=drive_link">
+                Download CV
+                <DownloadIcon class="ml-2 size-4" />
+            </HoverButton>
+            <HoverButton py="py-0" px="px-0" size="size-11" href="https://www.linkedin.com/in/matiasmg/">
+                <LinkedInIcon class="size-4" />
+            </HoverButton>
+        </div>
+    </div>
+    <div class="object-right ml-auto my-auto">
+        <img src="profile-pic.webp" class="size-60 rounded-full" alt="mockup" />
+    </div>
+</section>

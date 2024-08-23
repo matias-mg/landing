@@ -1,61 +1,70 @@
 ---
 import LanguageDropdown from "./LanguageDropdown.astro";
-import Globe from "./icons/Globe.astro";
+import GlobeIcon from "./icons/GlobeIcon.astro";
 ---
 
-<div
-  class="sticky top-0 px-8 pt-6 lg:pt-6 flex items-center justify-between text-blue-300 font-medium text-sm tracking-wide"
->
-  <p class="flex items-center text-2xl font-semibold text-blue-100">mat-dev</p>
-  <div class="flex items-center">
-    <div class="-my-1 ml-2 -mr-1 md:hidden">
-      <button
-        id="portal-button"
-        type="button"
-        class="text-slate-500 w-8 h-8 flex items-center justify-center hover:text-blue-100"
-      >
-        <svg width="24" height="24" fill="none" aria-hidden="true">
-          <path
-            d="M12 6v.01M12 12v.01M12 18v.01M12 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-          </path>
-        </svg>
-      </button>
-      <div
-        hidden=""
-        style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none"
-      >
-      </div>
-    </div>
-    <div class="hidden md:flex items-center">
-      <nav>
-        <ul
-          class="flex items-center [&>a]:transition-colors [&>a]:cursor-pointer"
+<div class="sticky top-0 px-8 pt-6">
+  <div
+    class="flex items-center justify-between text-blue-300 font-medium text-sm tracking-wide"
+  >
+    <p class="flex items-center text-2xl font-semibold text-blue-100">
+      mat-dev
+    </p>
+    <div class="flex items-center">
+      <div class="-my-1 ml-2 -mr-1 md:hidden">
+        <button
+          id="portal-button"
+          type="button"
+          class="text-slate-500 w-8 h-8 flex items-center justify-center hover:text-blue-100"
         >
-          <li>
-            <a class="hover:text-blue-100 p-4" href="#home">Home</a>
-          </li>
-          <li>
-            <a href="#experience" class="hover:text-blue-100 p-4">Experience</a>
-          </li>
-          <li>
-            <a class="hover:text-blue-100 p-4" href="#technologies"
-              >Technologies</a
+          <svg width="24" height="24" fill="none" aria-hidden="true">
+            <path
+              d="M12 6v.01M12 12v.01M12 18v.01M12 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
             >
-          </li>
-          <li>
-            <a class="hover:text-blue-100 p-4" href="/contact">Contact</a>
-          </li>
-        </ul>
-      </nav>
-      <div class="flex items-center border-l ml-3 pl-2 border-blue-950">
-        <div id="language-dropdown-button" class="block hover:text-blue-100 -m-2 p-2 cursor-pointer ml-1">
-          <Globe class="size-5" />
-          <LanguageDropdown id="language-dropdown-dialog" />
+            </path>
+          </svg>
+        </button>
+        <div
+          hidden=""
+          style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none"
+        >
+        </div>
+      </div>
+      <div class="hidden md:flex items-center">
+        <nav>
+          <ul
+            class="flex items-center [&>a]:transition-colors [&>a]:cursor-pointer"
+          >
+            <li>
+              <a class="hover:text-blue-100 p-4" href="#home">Home</a>
+            </li>
+            <li>
+              <a href="#experience" class="hover:text-blue-100 p-4"
+                >Experience</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-blue-100 p-4" href="#technologies"
+                >Technologies</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-blue-100 p-4" href="/contact">Contact</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="flex items-center border-l ml-3 pl-2 border-blue-950">
+          <div
+            id="language-dropdown-button"
+            class="block hover:text-blue-100 -m-2 p-2 cursor-pointer ml-1"
+          >
+            <GlobeIcon class="size-5" />
+            <LanguageDropdown id="language-dropdown-dialog" />
+          </div>
         </div>
       </div>
     </div>
@@ -128,7 +137,7 @@ import Globe from "./icons/Globe.astro";
               <div
                 class="relative flex items-center ring-1 ring-slate-600 bg-slate-700 rounded-lg shadow-sm p-2 text-blue-100 font-semibold"
               >
-                <Globe class="size-5 mr-2" />
+                <GlobeIcon class="size-5 mr-2" />
                 English
                 <svg class="w-6 h-6 ml-2 text-blue-500" fill="none">
                   <path
@@ -157,7 +166,9 @@ import Globe from "./icons/Globe.astro";
 <script>
   const portal = document.querySelector("#portal-container");
   const desktopPortal = document.querySelector("#language-dropdown-dialog");
-  const desktopPortalButton = document.getElementById("language-dropdown-button");
+  const desktopPortalButton = document.getElementById(
+    "language-dropdown-button",
+  );
   const portalButton = document.getElementById("portal-button");
   const test = document.getElementById("test");
   const portalDialog = document.getElementById("portal-dialog");

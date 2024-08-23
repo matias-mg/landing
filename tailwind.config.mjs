@@ -12,10 +12,11 @@ export default {
 					50: '#E7F1F3', // Titles
 					100: '#E6EDF3', // Navbar links
 					300: '#B0C7CB', // Base text
-					500: '#868F91', // Secondary text
+					600: '#33A0B3', // Secondary text
 					950: '#142733', // Blue background
 				},
 				'gray': {
+					500: '#868F91', // Secondary text
 					600: '#868F91', // Subtitles
 				},
 				'slate': {
