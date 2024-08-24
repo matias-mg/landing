@@ -1,0 +1,108 @@
+---
+import SectionTitle from "./SectionTitle.astro";
+
+const TECHNOLOGIES_LIST = [
+    {
+        name: "Next.js",
+        classStyles: "bg-[#D9D9D9]",
+        subtitle: "The React Framework for the Web",
+        description:
+            "Used by some of the world's largest companies, Next.js enables you to create high-quality web applications with the power of React components.",
+        icon: "./nextjs-icon.svg",
+    },
+    {
+        name: "React",
+        classStyles: "bg-black",
+        subtitle: "The React Framework for the Web",
+        description:
+            "Used by some of the world's largest companies, Next.js enables you to create high-quality web applications with the power of React components.",
+        icon: "./react-icon.svg",
+    },
+    {
+        name: "TypeScript",
+        classStyles: "bg-[#007ACC]",
+        subtitle: "The React Framework for the Web",
+        description:
+            "Used by some of the world's largest companies, Next.js enables you to create high-quality web applications with the power of React components.",
+        icon: "./typescript-icon.svg",
+    },
+    {
+        name: "GraphQL",
+        classStyles: "bg-gradient-to-t from-[#1B0514] to-[#37162C]",
+        subtitle: "The React Framework for the Web",
+        description:
+            "Used by some of the world's largest companies, Next.js enables you to create high-quality web applications with the power of React components.",
+        icon: "./graphql-icon.svg",
+    },
+    {
+        name: "Tailwind CSS",
+        classStyles: "bg-[#fff]",
+        subtitle: "The React Framework for the Web",
+        description:
+            "Used by some of the world's largest companies, Next.js enables you to create high-quality web applications with the power of React components.",
+        icon: "./tailwind-icon.svg",
+    },
+    {
+        name: "Storybook",
+        classStyles: "bg-[#fff]",
+        subtitle: "The React Framework for the Web",
+        description:
+            "Used by some of the world's largest companies, Next.js enables you to create high-quality web applications with the power of React components.",
+        icon: "./storybook-icon.svg",
+    },
+    {
+        name: "Jest",
+        classStyles: "bg-gradient-to-t from-[#461A20] to-[#77343E]",
+        subtitle: "The React Framework for the Web",
+        description:
+            "Used by some of the world's largest companies, Next.js enables you to create high-quality web applications with the power of React components.",
+        icon: "./jest-icon.svg",
+    },
+    {
+        name: "React Testing Library",
+        classStyles: "bg-gradient-to-t from-[#741618] to-[#A92321]",
+        subtitle: "The React Framework for the Web",
+        description:
+            "Used by some of the world's largest companies, Next.js enables you to create high-quality web applications with the power of React components.",
+        icon: "./testinglibrary-icon.svg",
+    },
+];
+---
+
+<section id="technologies" class="max-w-5xl mx-auto mt-44">
+    <SectionTitle center prefix="Some of my favorite" title="Technologies" />
+    <div
+        class="flex items-center flex-col bg-slate-900 m-auto rounded-3xl p-2 mt-4"
+    >
+        <div class="flex overflow-x-scroll hide-scroll-bar">
+            <div class="flex flex-nowrap">
+                {
+                    TECHNOLOGIES_LIST.map((technology) => (
+                        <div class="inline-block px-3">
+                            <div
+                                class={`flex justify-center items-center size-16 max-w-xs overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out ${technology.classStyles}`}
+                            >
+                                <img
+                                    class="size-[85%]"
+                                    alt={`${technology.name} logo`}
+                                    src={technology.icon}
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .hide-scroll-bar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .hide-scroll-bar::-webkit-scrollbar {
+        display: none;
+    }
+</style>
