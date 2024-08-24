@@ -74,13 +74,13 @@ const TECHNOLOGIES_LIST = [
     <div
         class="flex items-center flex-col bg-slate-900 m-auto rounded-3xl p-2 mt-4"
     >
-        <div class="flex overflow-x-scroll hide-scroll-bar">
-            <div class="flex flex-nowrap">
+        <div class="flex overflow-x-scroll hide-scroll-bar w-full">
+            <div class="flex flex-nowrap m-auto">
                 {
                     TECHNOLOGIES_LIST.map((technology) => (
                         <div class="inline-block px-3">
                             <div
-                                class={`flex justify-center items-center size-16 max-w-xs overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out ${technology.classStyles}`}
+                                class={`flex justify-center items-center size-16 overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out ${technology.classStyles}`}
                             >
                                 <img
                                     class="size-[85%]"
@@ -93,6 +93,29 @@ const TECHNOLOGIES_LIST = [
                     ))
                 }
             </div>
+        </div>
+    </div>
+    <div class="flex p-4 bg-slate-900 mt-4 rounded-3xl gap-4 border border-blue-600 border-opacity-20">
+        <div class="flex flex-col bg-gradient-to-br from-slate-900 to-blue-600 w-60 h-40 rounded-2xl p-4 gap-2">
+            <div
+                class={`flex justify-center items-center size-12 rounded-2xl ${"bg-[#D9D9D9]"}`}
+            >
+                <img
+                    class="size-[75%]"
+                    alt={`${"technology.name"} logo`}
+                    src={"./nextjs-icon.svg"}
+                    loading="lazy"
+                />
+            </div>
+            <p class="text-blue-100 text-base font-normal">The React Framework for the Web</p>
+        </div>
+        <div class="flex flex-col justify-center margin-auto">
+            <p class="text-2xl text-blue-50 font-semibold">Next.js</p>
+            <p class="text-lg text-blue-300">
+                Used by some of the world's largest companies, Next.js enables
+                you to create high-quality web applications with the power of
+                React components.
+            </p>
         </div>
     </div>
 </section>
