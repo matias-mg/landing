@@ -8,9 +8,9 @@ import HeroDoubleLine from "./icons/HeroDoubleLine.astro";
 
 <section
     id="home"
-    class="relative flex justify-between w-screen max-w-5xl mx-auto pt-20 sm:pt-24 lg:pt-32"
+    class="relative flex flex-col-reverse items-center gap-8 lg:gap-4 md:flex-row md:justify-between w-full max-w-5xl mx-auto pt-16 sm:pt-24 lg:pt-32"
 >
-    <div>
+    <div class="text-center md:text-left">
         <h1
             class="relative max-w-2xl text-4xl font-semibold md:text-4xl text-blue-50"
         >
@@ -27,13 +27,13 @@ import HeroDoubleLine from "./icons/HeroDoubleLine.astro";
             >Open to Work</span
         >
         <p
-            class="max-w-2xl my-6 font-light lg:mb-8 md:text-lg text-blue-300 md:leading-6"
+            class="font-light text-blue-300 text-pretty my-6 max-w-lg md:max-w-xl md:my-6 md:leading-6 md:text-lg lg:mb-8 lg:max-w-2xl "
         >
             Hello! I’m a frontend developer with 4 years of experience in React
             and team leadership skills. I create intuitive and efficient UI,
             with a focus on continuous improvement and team collaboration.
         </p>
-        <div class="flex items-center gap-4">
+        <div class="flex justify-center items-center gap-4 md:justify-start">
             <HoverButton
                 href="https://drive.google.com/file/d/1lkNuPJ0Ru5QMC16KDlE1V91WxtB9aahA/view?usp=drive_link"
             >
@@ -51,9 +51,9 @@ import HeroDoubleLine from "./icons/HeroDoubleLine.astro";
             </HoverButton>
         </div>
     </div>
-    <div class="relative object-right ml-auto my-auto">
+    <div class="relative object-right md:ml-auto my-auto">
         <div
-            class="size-60 rounded-full border-2 border-blue-600 border-opacity-30"
+            class="size-48 rounded-full border-2 border-blue-600 border-opacity-30 md:size-60"
         >
             <img
                 src="profile-pic.webp"
@@ -61,15 +61,15 @@ import HeroDoubleLine from "./icons/HeroDoubleLine.astro";
                 alt="Matías face in a circular shape"
             />
             <div
-                class="absolute top-0 right-0 rounded-full border border-blue-600 size-[250px]"
+                class="absolute top-0 right-0 rounded-full border border-blue-600 size-[104%]"
             >
             </div>
         </div>
         <HeroDoubleLine
-            class="absolute -bottom-20 -right-[130px] text-blue-600 scale-x-[-1]"
+            class="absolute bottom-0 lg:-bottom-20 -right-[130px] text-blue-600 scale-x-[-1]"
         />
     </div>
     <HeroBigShape
-        class="absolute -z-10 top-0 -right-72 size-[720px] filter blur-[110px] animate-blob opacity-20 text-blue-600"
+        class="absolute -z-10 top-0 -right-52 size-[720px] filter blur-[110px] animate-blob opacity-20 text-blue-600 lg:-right-72"
     />
 </section>
