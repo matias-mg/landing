@@ -1,0 +1,26 @@
+---
+const { jobTitle, company, from, to, description, techList, xPosition = "right-0" } = Astro.props;
+---
+
+<div
+    class={`absolute ${xPosition} w-full max-w-[640px] min-w-[640px] rounded-lg h-fit bg-slate-900 p-6 py-7 z-20`}
+>
+    <h3 class="flex items-center text-blue-50 font-normal text-xl">
+        {jobTitle}
+        <span class="text-blue-600 text-base font-medium ml-2">• {company}</span
+        >
+    </h3>
+    <p class="text-gray-500 font-light text-sm">{from} - {to}</p>
+    <p class="my-4 font-light text-pretty leading-5">{description}</p>
+    <div class="flex flex-wrap gap-2">
+        {
+            techList.map((tech: string) => (
+                <div class="flex justify-center items-center bg-blue-950 border border-blue-600 border-opacity-50 rounded-full py-1 px-4 text-nowrap text-center min-w-[66px]">
+                    <span class="text-xs text-blue-600 font-semibold">
+                        {tech}
+                    </span>
+                </div>
+            ))
+        }
+    </div>
+</div>

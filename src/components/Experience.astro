@@ -1,0 +1,67 @@
+---
+import ExperienceCard from "./ExperienceCard.astro";
+import SectionTitle from "./SectionTitle.astro";
+---
+
+<section id="experience" class="max-w-7xl mx-auto mt-44">
+    <SectionTitle prefix="Summary of my" title="Professional Experience" />
+    <div class="relative flex items-center justify-between w-full">
+        <div class="relative mt-6 min-w-[768px]">
+            <div class="absolute inset-0 bg-blue-950 opacity-30" />
+            <img
+                src="./experience-1.webp"
+                class="size-full"
+                alt="Kandui trading main view"
+                loading="eager"
+            />
+        </div>
+        <ExperienceCard
+            jobTitle="React Team Leader"
+            company="Kandui"
+            from="August 2022"
+            to="September 2023"
+            description="Led UX/UI and React team at a FinTech startup, delivering investment-focused products and scalable, user-centric tools through strategic frontend development and design."
+            techList={[
+                "Next.js",
+                "React",
+                "TypeScript",
+                "Redux",
+                "Git",
+                "HTML5",
+                "CSS3",
+                "Figma",
+                "styled-components",
+                "Django",
+            ]}
+        />
+    </div>
+    <div class="relative flex items-center justify-between w-full mt-32">
+        <ExperienceCard
+            xPosition="left-0"
+            jobTitle="React Developer"
+            company="RG Corp"
+            from="January 2020"
+            to="July 2022"
+            description="Designed and developed views for a FinTech startup, focused on user-friendly KYC forms and customer enrollment. Refactored legacy React components using hooks to enhance usability."
+            techList={[
+                "React",
+                "TypeScript",
+                "Redux",
+                "Git",
+                "Figma",
+                "HTML5",
+                "CSS3",
+                "styled-components",
+            ]}
+        />
+        <div class="relative mt-6 min-w-[768px] ml-auto h-fit">
+            <div class="absolute inset-0 bg-blue-950 opacity-30" />
+            <img
+                src="./experience-2.webp"
+                class='size-full'
+                alt="RG Corp KYC"
+                loading="lazy"
+            />
+        </div>
+    </div>
+</section>
