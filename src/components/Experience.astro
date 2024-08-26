@@ -3,7 +3,7 @@ import JobExperienceContainer from "./JobExperienceContainer.astro";
 import SectionTitle from "./SectionTitle.astro";
 ---
 
-<section id="experience" class="max-w-7xl mx-auto mt-28 md:mt-44">
+<section id="experience" class="relative max-w-7xl mx-auto mt-28 md:mt-44">
     <SectionTitle prefix="Summary of my" title="Professional Experience" />
     <div class="flex flex-col gap-16">
         <JobExperienceContainer
@@ -47,5 +47,9 @@ import SectionTitle from "./SectionTitle.astro";
                 "styled-components",
             ]}
         />
+    </div>
+    <div
+        class="absolute -z-10 top-[15%] left-[10%] mx-auto size-[600px] filter blur-[110px] rounded-full animate-blob opacity-20 bg-blue-600"
+    >
     </div>
 </section>

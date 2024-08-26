@@ -1,5 +1,6 @@
 ---
 import SectionTitle from "./SectionTitle.astro";
+import HeroBigShape from "./icons/HeroBigShape.astro";
 
 const TECH_LIST = [
     {
@@ -72,7 +73,7 @@ const ICON_CONTAINER_BASE_STYLES =
     "flex justify-center items-center size-12 min-w-12 rounded-2xl ";
 ---
 
-<section id="technologies" class="max-w-5xl mx-auto mt-28 md:mt-44">
+<section id="technologies" class="relative max-w-5xl mx-auto mt-28 md:mt-44">
     <SectionTitle center prefix="Some of my favorite" title="Technologies" />
     <div
         class="flex items-center flex-col bg-slate-900 m-auto rounded-3xl px-2 mt-4"
@@ -127,7 +128,7 @@ const ICON_CONTAINER_BASE_STYLES =
             </div>
             <p
                 id="tech-info-subtitle"
-                class="text-blue-100 text-base font-normal"
+                class="text-blue-100 text-base font-normal text-pretty"
             >
                 {TECH_LIST[0].subtitle}
             </p>
@@ -144,6 +145,9 @@ const ICON_CONTAINER_BASE_STYLES =
             </p>
         </div>
     </div>
+    <div
+        class="absolute -z-10 top-0 right-0 left-0 mx-auto size-[540px] filter blur-[110px] rounded-full animate-blob opacity-20 bg-blue-600"
+    />
 </section>
 
 <script>
