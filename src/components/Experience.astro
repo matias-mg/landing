@@ -1,21 +1,15 @@
 ---
-import ExperienceCard from "./ExperienceCard.astro";
+import JobExperienceContainer from "./JobExperienceContainer.astro";
 import SectionTitle from "./SectionTitle.astro";
 ---
 
-<section id="experience" class="max-w-7xl mx-auto mt-44">
+<section id="experience" class="max-w-7xl mx-auto mt-28 md:mt-44">
     <SectionTitle prefix="Summary of my" title="Professional Experience" />
-    <div class="relative flex items-center justify-between w-full">
-        <div class="relative mt-6 min-w-[768px]">
-            <div class="absolute inset-0 bg-blue-950 opacity-30" />
-            <img
-                src="./experience-1.webp"
-                class="size-full"
-                alt="Kandui trading main view"
-                loading="eager"
-            />
-        </div>
-        <ExperienceCard
+    <div class="flex flex-col gap-16">
+        <JobExperienceContainer
+            right
+            eagerImg
+            imgSrc="./experience-1.webp"
             jobTitle="React Team Leader"
             company="Kandui"
             from="August 2022"
@@ -34,10 +28,9 @@ import SectionTitle from "./SectionTitle.astro";
                 "Django",
             ]}
         />
-    </div>
-    <div class="relative flex items-center justify-between w-full mt-32">
-        <ExperienceCard
-            xPosition="left-0"
+        <JobExperienceContainer
+            right={false}
+            imgSrc="./experience-2.webp"
             jobTitle="React Developer"
             company="RG Corp"
             from="January 2020"
@@ -54,14 +47,5 @@ import SectionTitle from "./SectionTitle.astro";
                 "styled-components",
             ]}
         />
-        <div class="relative mt-6 min-w-[768px] ml-auto h-fit">
-            <div class="absolute inset-0 bg-blue-950 opacity-30" />
-            <img
-                src="./experience-2.webp"
-                class='size-full'
-                alt="RG Corp KYC"
-                loading="lazy"
-            />
-        </div>
     </div>
 </section>

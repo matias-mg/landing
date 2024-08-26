@@ -1,0 +1,38 @@
+---
+import ExperienceCard from "./ExperienceCard.astro";
+
+const {
+    right = true,
+    eagerImg = false,
+    imgSrc,
+    jobTitle,
+    company,
+    from,
+    to,
+    description,
+    techList,
+} = Astro.props;
+---
+
+<div
+    class="flex flex-col items-center justify-between w-full lg:relative lg:flex-row"
+>
+    <div class={`relative mt-6 w-full lg:max-w-[768px] ${!right && "ml-auto"}`}>
+        <div class="absolute inset-0 bg-slate-950 opacity-40"></div>
+        <img
+            src={imgSrc}
+            class="size-full"
+            alt="Kandui trading main view"
+            loading={eagerImg ? "eager" : "lazy"}
+        />
+    </div>
+    <ExperienceCard
+        right={right}
+        jobTitle={jobTitle}
+        company={company}
+        from={from}
+        to={to}
+        description={description}
+        techList={techList}
+    />
+</div>

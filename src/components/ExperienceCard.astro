@@ -1,13 +1,13 @@
 ---
-const { jobTitle, company, from, to, description, techList, xPosition = "right-0" } = Astro.props;
+const { jobTitle, company, from, to, description, techList, right = true } = Astro.props;
 ---
 
 <div
-    class={`absolute ${xPosition} w-full max-w-[640px] min-w-[640px] rounded-lg h-fit bg-slate-900 p-6 py-7 z-20`}
+    class={`${right ? "right-0" : "left-0"} w-full max-w-[640px] bg-slate-900 m-auto -mt-10 p-4 py-5 h-fit rounded-lg z-20 md:p-6 md:py-7 lg:absolute`}
 >
-    <h3 class="flex items-center text-blue-50 font-normal text-xl">
+    <h3 class="flex flex-col text-blue-50 font-normal text-xl sm:flex-row sm:items-center">
         {jobTitle}
-        <span class="text-blue-600 text-base font-medium ml-2">• {company}</span
+        <span class="text-blue-600 text-base font-medium sm:ml-2">• {company}</span
         >
     </h3>
     <p class="text-gray-500 font-light text-sm">{from} - {to}</p>
