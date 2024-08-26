@@ -1,9 +1,9 @@
 ---
 
-const { prefix, title, center = false } = Astro.props;
+const { prefix, title, center = false, classStyles = "" } = Astro.props;
 ---
 
-<div class={`text-center ${!center && 'md:text-left'}`}>
+<div class={`text-center ${!center && 'md:text-left'} ${classStyles}`}>
     <p class="font-normal text-base text-blue-600 leading-5">{prefix}</p>
     <h2 class="font-medium text-4xl text-blue-50 leading-none">{title}</h2>
 </div>
