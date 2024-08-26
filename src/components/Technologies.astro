@@ -1,125 +1,203 @@
 ---
 import SectionTitle from "./SectionTitle.astro";
 
-const TECHNOLOGIES_LIST = [
+const TECH_LIST = [
+    {
+        name: "React",
+        classStyles: "bg-black",
+        subtitle: "A JavaScript library for building user interfaces",
+        description:
+            "A widely-adopted library maintained by Meta, it makes creating interactive UIs straightforward, efficiently updating and rendering just the right components when data changes.",
+        iconRoute: "./react-icon.svg",
+    },
     {
         name: "Next.js",
         classStyles: "bg-[#D9D9D9]",
         subtitle: "The React Framework for the Web",
         description:
             "Used by some of the world's largest companies, Next.js enables you to create high-quality web applications with the power of React components.",
-        icon: "./nextjs-icon.svg",
-    },
-    {
-        name: "React",
-        classStyles: "bg-black",
-        subtitle: "The React Framework for the Web",
-        description:
-            "Used by some of the world's largest companies, Next.js enables you to create high-quality web applications with the power of React components.",
-        icon: "./react-icon.svg",
+        iconRoute: "./nextjs-icon.svg",
     },
     {
         name: "TypeScript",
         classStyles: "bg-[#007ACC]",
-        subtitle: "The React Framework for the Web",
+        subtitle: "JavaScript with syntax for types.",
         description:
-            "Used by some of the world's largest companies, Next.js enables you to create high-quality web applications with the power of React components.",
-        icon: "./typescript-icon.svg",
+            "Developed and maintained by Microsoft, TypeScript enhances JavaScript by adding static types, enabling developers to catch errors early and improving code quality.",
+        iconRoute: "./typescript-icon.svg",
     },
     {
         name: "GraphQL",
         classStyles: "bg-gradient-to-t from-[#1B0514] to-[#37162C]",
-        subtitle: "The React Framework for the Web",
+        subtitle: "A query language for your API",
         description:
-            "Used by some of the world's largest companies, Next.js enables you to create high-quality web applications with the power of React components.",
-        icon: "./graphql-icon.svg",
+            "An open-source data query language originally developed by Facebook, GraphQL enables clients to request exactly the data they need, optimizing API performance and flexibility.",
+        iconRoute: "./graphql-icon.svg",
     },
     {
         name: "Tailwind CSS",
         classStyles: "bg-[#fff]",
-        subtitle: "The React Framework for the Web",
+        subtitle: "A utility-first CSS framework",
         description:
-            "Used by some of the world's largest companies, Next.js enables you to create high-quality web applications with the power of React components.",
-        icon: "./tailwind-icon.svg",
+            "Highly regarded for its flexibility, Tailwind CSS provides low-level utility classes that allow developers to build fully custom designs without leaving their HTML.",
+        iconRoute: "./tailwind-icon.svg",
     },
     {
         name: "Storybook",
         classStyles: "bg-[#fff]",
-        subtitle: "The React Framework for the Web",
+        subtitle: "UI component explorer for frontend developers",
         description:
-            "Used by some of the world's largest companies, Next.js enables you to create high-quality web applications with the power of React components.",
-        icon: "./storybook-icon.svg",
+            "Widely used in the frontend development community, Storybook allows developers to build, test, and showcase UI components in isolation, making UI development more organized and efficient.",
+        iconRoute: "./storybook-icon.svg",
     },
     {
         name: "Jest",
         classStyles: "bg-gradient-to-t from-[#461A20] to-[#77343E]",
-        subtitle: "The React Framework for the Web",
+        subtitle: "Delightful JavaScript Testing",
         description:
-            "Used by some of the world's largest companies, Next.js enables you to create high-quality web applications with the power of React components.",
-        icon: "./jest-icon.svg",
+            "Favored by many large projects, Jest is a robust testing framework that offers a simple setup, extensive features, and out-of-the-box support for various JavaScript frameworks.",
+        iconRoute: "./jest-icon.svg",
     },
     {
         name: "React Testing Library",
         classStyles: "bg-gradient-to-t from-[#741618] to-[#A92321]",
-        subtitle: "The React Framework for the Web",
+        subtitle: "Simple and complete testing utilities",
         description:
-            "Used by some of the world's largest companies, Next.js enables you to create high-quality web applications with the power of React components.",
-        icon: "./testinglibrary-icon.svg",
+            "Focused on testing React components from a user’s perspective, this library promotes best practices by encouraging testing of the actual behavior of your application.",
+        iconRoute: "./testinglibrary-icon.svg",
     },
 ];
+
+const ICON_CONTAINER_BASE_STYLES =
+    "flex justify-center items-center size-12 min-w-12 rounded-2xl ";
 ---
 
 <section id="technologies" class="max-w-5xl mx-auto mt-44">
     <SectionTitle center prefix="Some of my favorite" title="Technologies" />
     <div
-        class="flex items-center flex-col bg-slate-900 m-auto rounded-3xl p-2 mt-4"
+        class="flex items-center flex-col bg-slate-900 m-auto rounded-3xl px-2 mt-4"
     >
-        <div class="flex overflow-x-scroll hide-scroll-bar w-full">
+        <div class="flex overflow-x-scroll hide-scroll-bar w-full pt-1">
             <div class="flex flex-nowrap m-auto">
                 {
-                    TECHNOLOGIES_LIST.map((technology) => (
-                        <div class="inline-block px-3">
+                    TECH_LIST.map((tech, idx) => (
+                        <div
+                            class="inline-block mx-1.5 md:mx-3 cursor-pointer my-1"
+                            data-tech={JSON.stringify(tech)}
+                        >
                             <div
-                                class={`flex justify-center items-center size-16 overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out ${technology.classStyles}`}
+                                data-icon-container
+                                class={`flex justify-center items-center size-16 overflow-hidden rounded-2xl duration-300 ease-in-out transition-all hover:scale-110 shadow-[0_0_5px_2px_rgba(0,0,0,0)] ${tech.classStyles}`}
                             >
                                 <img
                                     class="size-[85%]"
-                                    alt={`${technology.name} logo`}
-                                    src={technology.icon}
+                                    alt={`${tech.name} logo`}
+                                    src={tech.iconRoute}
                                     loading="lazy"
                                 />
                             </div>
+                            <div
+                                data-circle-active-indicator
+                                class={`${idx === 0 ? "block" : "hidden"} size-1.5 bg-blue-600 rounded-full mx-auto mt-2`}
+                            />
                         </div>
                     ))
                 }
             </div>
         </div>
     </div>
-    <div class="flex p-4 bg-slate-900 mt-4 rounded-3xl gap-4 border border-blue-600 border-opacity-20">
-        <div class="flex flex-col bg-gradient-to-br from-slate-900 to-blue-600 w-60 h-40 rounded-2xl p-4 gap-2">
+    <div
+        class="flex flex-col gap-6 items-center p-4 bg-slate-900 mt-4 rounded-3xl border border-blue-600 border-opacity-20 sm:gap-6 sm:text-left sm:flex-row sm:items-center"
+    >
+        <div
+            class="flex flex-row items-center justify-start w-full bg-gradient-to-br from-blue-600 to-slate-900 rounded-2xl p-4 gap-2 sm:justify-center sm:flex-col sm:items-start sm:text-left sm:min-w-48 sm:min-h-44 sm:max-w-48"
+        >
             <div
-                class={`flex justify-center items-center size-12 rounded-2xl ${"bg-[#D9D9D9]"}`}
+                id="tech-info-left-container"
+                data-base-styles={ICON_CONTAINER_BASE_STYLES}
+                class={`${ICON_CONTAINER_BASE_STYLES} ${TECH_LIST[0].classStyles}`}
             >
                 <img
+                    id="details-icon"
                     class="size-[75%]"
-                    alt={`${"technology.name"} logo`}
-                    src={"./nextjs-icon.svg"}
+                    alt={`${TECH_LIST[0].name} logo`}
+                    src={TECH_LIST[0].iconRoute}
                     loading="lazy"
                 />
             </div>
-            <p class="text-blue-100 text-base font-normal">The React Framework for the Web</p>
+            <p
+                id="tech-info-subtitle"
+                class="text-blue-100 text-base font-normal"
+            >
+                {TECH_LIST[0].subtitle}
+            </p>
         </div>
-        <div class="flex flex-col justify-center margin-auto">
-            <p class="text-2xl text-blue-50 font-semibold">Next.js</p>
-            <p class="text-lg text-blue-300">
-                Used by some of the world's largest companies, Next.js enables
-                you to create high-quality web applications with the power of
-                React components.
+        <div class="flex flex-col md justify-center margin-auto gap-2">
+            <p id="tech-info-title" class="text-2xl text-blue-50 font-semibold">
+                {TECH_LIST[0].name}
+            </p>
+            <p
+                id="tech-info-description"
+                class="text-base text-pretty text-blue-300 sm:text-lg"
+            >
+                {TECH_LIST[0].description}
             </p>
         </div>
     </div>
 </section>
 
+<script>
+    const techContainer = document.querySelectorAll("[data-tech]");
+    document
+        .querySelector("[data-icon-container]")
+        .classList.add("shadow-blue-600");
+
+    techContainer.forEach((button: HTMLElement) => {
+        button.addEventListener("click", () => {
+            const clickedTechnology = JSON.parse(button.dataset.tech);
+            const img = document.getElementById(
+                "details-icon",
+            ) as HTMLImageElement;
+            const techInfoLeftContainer = document.getElementById(
+                "tech-info-left-container",
+            );
+
+            // Update the image and container styles
+            img.src = clickedTechnology.iconRoute;
+            img.alt = `${clickedTechnology.name} logo`;
+            techInfoLeftContainer.className = `${techInfoLeftContainer.dataset.baseStyles} ${clickedTechnology.classStyles}`;
+
+            // Update the text content
+            document.getElementById("tech-info-subtitle").textContent =
+                clickedTechnology.subtitle;
+            document.getElementById("tech-info-title").textContent =
+                clickedTechnology.name;
+            document.getElementById("tech-info-description").textContent =
+                clickedTechnology.description;
+
+            // Manage active indicators
+            document
+                .querySelectorAll("[data-circle-active-indicator]")
+                .forEach((indicator) => {
+                    indicator.classList.add("hidden");
+                });
+            document
+                .querySelectorAll("[data-icon-container]")
+                .forEach((indicator) => {
+                    indicator.classList.remove("shadow-blue-600");
+                });
+
+            const circleActiveIndicator = button.querySelector(
+                "[data-circle-active-indicator]",
+            );
+            const iconContainerActiveIndicator = button.querySelector(
+                "[data-icon-container]",
+            );
+            circleActiveIndicator.classList.remove("hidden");
+            iconContainerActiveIndicator.classList.add("shadow-blue-600");
+        });
+    });
+</script>
 <style>
     .hide-scroll-bar {
         -ms-overflow-style: none;
