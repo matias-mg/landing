@@ -3,9 +3,9 @@ import LanguageDropdown from "./LanguageDropdown.astro";
 import GlobeIcon from "./icons/GlobeIcon.astro";
 ---
 
-<div class="sticky top-0 px-8 pt-6">
+<div id="navbar" class="sticky top-0 px-8 py-6 pb-8 z-50 transition-transform delay-500 from-slate-900 via-[rgba(0,0,0,0.5)] to-transparent">
   <div
-    class="flex items-center justify-between text-blue-300 font-medium text-sm tracking-wide"
+    class="flex items-center justify-between text-blue-300 font-medium text-sm tracking-wide 2xl:max-w-7xl mx-auto"
   >
     <p class="flex items-center text-2xl font-semibold text-blue-100">
       mat-dev
@@ -40,7 +40,7 @@ import GlobeIcon from "./icons/GlobeIcon.astro";
             class="flex items-center [&>a]:transition-colors [&>a]:cursor-pointer"
           >
             <li>
-              <a class="hover:text-blue-100 p-4" href="#home">Home</a>
+              <a class="hover:text-blue-100 p-4" href="#home">About me</a>
             </li>
             <li>
               <a href="#experience" class="hover:text-blue-100 p-4"
@@ -51,9 +51,6 @@ import GlobeIcon from "./icons/GlobeIcon.astro";
               <a class="hover:text-blue-100 p-4" href="#technologies"
                 >Technologies</a
               >
-            </li>
-            <li>
-              <a class="hover:text-blue-100 p-4" href="/contact">Contact</a>
             </li>
           </ul>
         </nav>
@@ -82,7 +79,7 @@ import GlobeIcon from "./icons/GlobeIcon.astro";
     </button>
     <div>
       <div
-        class="fixed z-50 inset-0 md:hidden"
+        class="fixed z-30 inset-0 md:hidden"
         id="portal-dialog"
         role="dialog"
         tabindex="-1"
@@ -164,6 +161,33 @@ import GlobeIcon from "./icons/GlobeIcon.astro";
 </div>
 
 <script>
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener("scroll", function () {
+    const navbar = document.querySelector("#navbar");
+    const currentScrollY = window.scrollY;
+
+    if (window.scrollY > 40) {
+      navbar.classList.add("bg-gradient-to-b");
+    } else {
+      navbar.classList.remove("bg-gradient-to-b");
+    }
+
+    if (currentScrollY > 30 && currentScrollY > lastScrollY) {
+      // User is scrolling down and has passed 30px
+      navbar.classList.add("-translate-y-full");
+    } else if (
+      currentScrollY < lastScrollY &&
+      lastScrollY - currentScrollY > 1
+    ) {
+      // User is scrolling up by more than 10px
+      navbar.classList.remove("-translate-y-full");
+    }
+
+    // Update the lastScrollY to the current position
+    lastScrollY = currentScrollY;
+  });
+
   const portal = document.querySelector("#portal-container");
   const desktopPortal = document.querySelector("#language-dropdown-dialog");
   const desktopPortalButton = document.getElementById(

@@ -1,6 +1,7 @@
 ---
 const {
-    id = "language-dropdown-dialog",
+    id = "",
+    classStyles = "",
     ...props
 } = Astro.props;
 ---
@@ -9,7 +10,7 @@ const {
     {...props}
     target="_blank"
     rel="noopener noreferrer"
-    class="inline-flex items-center px-5 py-2 rounded-full bg-gradient-to-r from-[#a259ff] to-[#b57aff] text-blue-50 font-medium transition-all duration-300 hover:shadow-lg hover:shadow-[#a259ff]/30 focus:outline-none focus:ring-2 focus:ring-[#a259ff] focus:ring-offset-2 hover:scale-105"
+    class={`inline-flex items-center px-5 py-2 rounded-full bg-gradient-to-r from-[#a259ff] to-[#b57aff] text-blue-50 font-medium transition-all duration-300 hover:shadow-lg hover:shadow-[#a259ff]/30 focus:outline-none focus:ring-2 focus:ring-[#a259ff] focus:ring-offset-2 hover:scale-105 ${classStyles}`}
 >
     View Figma Design
     <svg
