@@ -3,7 +3,10 @@ import LanguageDropdown from "./LanguageDropdown.astro";
 import GlobeIcon from "./icons/GlobeIcon.astro";
 ---
 
-<div id="navbar" class="sticky top-0 px-8 py-6 pb-8 z-50 transition-transform delay-500 from-slate-900 via-[rgba(0,0,0,0.5)] to-transparent">
+<div
+  id="navbar"
+  class="sticky top-0 px-8 py-6 pb-8 z-50 transition-transform from-slate-900 via-[rgba(0,0,0,0.5)] to-transparent"
+>
   <div
     class="flex items-center justify-between text-blue-300 font-medium text-sm tracking-wide 2xl:max-w-7xl mx-auto"
   >
@@ -40,7 +43,7 @@ import GlobeIcon from "./icons/GlobeIcon.astro";
             class="flex items-center [&>a]:transition-colors [&>a]:cursor-pointer"
           >
             <li>
-              <a class="hover:text-blue-100 p-4" href="#home">About me</a>
+              <a class="hover:text-blue-100 p-4" href="#about-me">About me</a>
             </li>
             <li>
               <a href="#experience" class="hover:text-blue-100 p-4"
@@ -60,7 +63,7 @@ import GlobeIcon from "./icons/GlobeIcon.astro";
             class="block hover:text-blue-100 -m-2 p-2 cursor-pointer ml-1"
           >
             <GlobeIcon class="size-5" />
-            <LanguageDropdown id="language-dropdown-dialog" />
+            <LanguageDropdown id="language-dropdown-dialog" classStyles="-mt-6 mr-2" />
           </div>
         </div>
       </div>
@@ -72,7 +75,6 @@ import GlobeIcon from "./icons/GlobeIcon.astro";
   <div id="portal-container" class="hidden">
     <button
       type="button"
-      data-headlessui-focus-guard="true"
       aria-hidden="true"
       style="position: fixed; top: 1px; left: 1px; width: 1px; height: 0px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;"
     >
@@ -84,11 +86,9 @@ import GlobeIcon from "./icons/GlobeIcon.astro";
         role="dialog"
         tabindex="-1"
         aria-modal="true"
-        data-open=""
       >
         <div class="fixed inset-0 bg-black/20 backdrop-blur-sm"></div><div
           class="fixed top-4 right-4 w-full max-w-xs bg-blue-950 rounded-lg shadow-lg p-6 text-l font-normal text-blue-300"
-          data-open=""
         >
           <button
             id="inner-portal-button"
@@ -113,7 +113,7 @@ import GlobeIcon from "./icons/GlobeIcon.astro";
           </button>
           <ul class="space-y-6">
             <li>
-              <a class="hover:text-sky-500" href="#home">Home</a>
+              <a class="hover:text-sky-500" href="#about-me">About me</a>
             </li>
             <li>
               <a href="#experience" class="hover:text-sky-500">Experience</a>
@@ -144,7 +144,7 @@ import GlobeIcon from "./icons/GlobeIcon.astro";
                     stroke-linecap="round"
                     stroke-linejoin="round"></path>
                 </svg>
-                <LanguageDropdown />
+                <LanguageDropdown classStyles="-mt-6" />
               </div>
             </div>
           </div>
@@ -153,7 +153,6 @@ import GlobeIcon from "./icons/GlobeIcon.astro";
     </div>
     <button
       type="button"
-      data-headlessui-focus-guard="true"
       aria-hidden="true"
       style="position: fixed; top: 1px; left: 1px; width: 1px; height: 0px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;"
     ></button>
@@ -167,13 +166,13 @@ import GlobeIcon from "./icons/GlobeIcon.astro";
     const navbar = document.querySelector("#navbar");
     const currentScrollY = window.scrollY;
 
-    if (window.scrollY > 40) {
+    if (window.scrollY > 100) {
       navbar.classList.add("bg-gradient-to-b");
     } else {
       navbar.classList.remove("bg-gradient-to-b");
     }
 
-    if (currentScrollY > 30 && currentScrollY > lastScrollY) {
+    if (currentScrollY > 40 && currentScrollY > lastScrollY) {
       // User is scrolling down and has passed 30px
       navbar.classList.add("-translate-y-full");
     } else if (
