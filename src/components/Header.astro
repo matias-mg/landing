@@ -5,7 +5,7 @@ import GlobeIcon from "./icons/GlobeIcon.astro";
 
 <div
   id="navbar"
-  class="sticky top-0 px-8 py-6 pb-8 z-50 transition-transform from-slate-900 via-[rgba(0,0,0,0.5)] to-transparent"
+  class="sticky top-0 px-8 py-6 pb-8 z-40 transition-transform from-slate-900 via-[rgba(0,0,0,0.5)] to-transparent"
 >
   <div
     class="flex items-center justify-between text-blue-300 font-medium text-sm tracking-wide 2xl:max-w-7xl mx-auto"
@@ -16,7 +16,7 @@ import GlobeIcon from "./icons/GlobeIcon.astro";
     <div class="flex items-center">
       <div class="-my-1 ml-2 -mr-1 md:hidden">
         <button
-          id="portal-button"
+          id="mobile-menu-open-button"
           type="button"
           class="text-slate-500 w-8 h-8 flex items-center justify-center hover:text-blue-100"
         >
@@ -31,11 +31,6 @@ import GlobeIcon from "./icons/GlobeIcon.astro";
             </path>
           </svg>
         </button>
-        <div
-          hidden=""
-          style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none"
-        >
-        </div>
       </div>
       <div class="hidden md:flex items-center">
         <nav>
@@ -57,154 +52,136 @@ import GlobeIcon from "./icons/GlobeIcon.astro";
             </li>
           </ul>
         </nav>
-        <div class="flex items-center border-l ml-3 pl-2 border-blue-950">
+        <div class="relative flex items-center border-l ml-3 pl-2 border-blue-950">
           <div
-            id="language-dropdown-button"
+            id="desktop-language-dropdown-button"
             class="block hover:text-blue-100 -m-2 p-2 cursor-pointer ml-1"
           >
             <GlobeIcon class="size-5" />
-            <LanguageDropdown id="language-dropdown-dialog" classStyles="-mt-6 mr-2" />
           </div>
+          <LanguageDropdown
+            id="desktop-language-dropdown"
+            class="hidden mr-2"
+          />
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div>
-  <div id="portal-container" class="hidden">
+<div id="mobile-menu" class="hidden fixed inset-0 z-50 md:hidden">
+  <div class="fixed inset-0 bg-black/20 backdrop-blur-sm"></div>
+  <div
+    class="fixed top-4 right-4 w-full max-w-xs bg-blue-950 rounded-lg shadow-lg p-6 text-l font-normal text-blue-300"
+  >
     <button
+      id="mobile-menu-close-button"
       type="button"
-      aria-hidden="true"
-      style="position: fixed; top: 1px; left: 1px; width: 1px; height: 0px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;"
+      class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center text-blue-300 hover:text-blue-100"
     >
-    </button>
-    <div>
-      <div
-        class="fixed z-30 inset-0 md:hidden"
-        id="portal-dialog"
-        role="dialog"
-        tabindex="-1"
-        aria-modal="true"
+      <span class="sr-only">Close navigation</span>
+      <svg
+        viewBox="0 0 10 10"
+        class="w-2.5 h-2.5 overflow-visible"
+        aria-hidden="true"
       >
-        <div class="fixed inset-0 bg-black/20 backdrop-blur-sm"></div><div
-          class="fixed top-4 right-4 w-full max-w-xs bg-blue-950 rounded-lg shadow-lg p-6 text-l font-normal text-blue-300"
+        <path
+          d="M0 0L10 10M10 0L0 10"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
         >
-          <button
-            id="inner-portal-button"
-            type="button"
-            class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center text-blue-300 hover:text-blue-100"
-          >
-            <span class="sr-only">Close navigation</span>
-            <svg
-              viewBox="0 0 10 10"
-              class="w-2.5 h-2.5 overflow-visible"
-              aria-hidden="true"
-            >
-              <path
-                d="M0 0L10 10M10 0L0 10"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-              >
-              </path>
-            </svg>
-          </button>
-          <ul class="space-y-6">
-            <li>
-              <a class="hover:text-sky-500" href="#about-me">About me</a>
-            </li>
-            <li>
-              <a href="#experience" class="hover:text-sky-500">Experience</a>
-            </li>
-            <li>
-              <a class="hover:text-sky-500" href="#technologies">Technologies</a
-              >
-            </li>
-            <li>
-              <a class="hover:text-sky-500" href="#contact">Contact</a>
-            </li>
-          </ul>
-          <div class="mt-6 pt-6 border-t border-slate-700">
-            <div class="flex items-center justify-between">
-              <label for="theme" class="text-blue-300 font-light">
-                Select language
-              </label>
-              <div
-                class="relative flex items-center ring-1 ring-slate-600 bg-slate-700 rounded-lg shadow-sm p-2 text-blue-100 font-semibold"
-              >
-                <GlobeIcon class="size-5 mr-2" />
-                English
-                <svg class="w-6 h-6 ml-2 text-blue-500" fill="none">
-                  <path
-                    d="m15 11-3 3-3-3"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"></path>
-                </svg>
-                <LanguageDropdown classStyles="-mt-6" />
-              </div>
-            </div>
-          </div>
+        </path>
+      </svg>
+    </button>
+    <ul class="space-y-6">
+      <li>
+        <a class="hover:text-sky-500" href="#about-me">About me</a>
+      </li>
+      <li>
+        <a href="#experience" class="hover:text-sky-500">Experience</a>
+      </li>
+      <li>
+        <a class="hover:text-sky-500" href="#technologies">Technologies</a>
+      </li>
+    </ul>
+    <div class="mt-6 pt-6 border-t border-slate-700">
+      <div class="flex items-center justify-between">
+        <label for="theme" class="text-blue-300 font-light">
+          Select language
+        </label>
+        <div
+          id="mobile-language-dropdown-button"
+          class="relative flex items-center ring-1 ring-slate-600 bg-slate-700 rounded-lg shadow-sm py-2 px-3 text-blue-100 font-semibold"
+        >
+          <GlobeIcon class="size-5 mr-2" />
+          English
+          <svg class="w-6 h-6 ml-2 text-blue-500" fill="none">
+            <path
+              d="m15 11-3 3-3-3"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+          <LanguageDropdown id="mobile-language-dropdown" class="hidden" />
         </div>
       </div>
     </div>
-    <button
-      type="button"
-      aria-hidden="true"
-      style="position: fixed; top: 1px; left: 1px; width: 1px; height: 0px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;"
-    ></button>
   </div>
 </div>
 
 <script>
   let lastScrollY = window.scrollY;
 
-  window.addEventListener("scroll", function () {
-    const navbar = document.querySelector("#navbar");
+  const navbar = document.querySelector("#navbar");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const mobileOpenMenuButton = document.getElementById("mobile-menu-open-button");
+  const mobileCloseMenuButton = document.getElementById("mobile-menu-close-button");
+  const desktopLanguageDropdown = document.getElementById("desktop-language-dropdown");
+  const mobileLanguageDropdown = document.getElementById("mobile-language-dropdown");
+  const desktopLanguageDropdownButton = document.getElementById("desktop-language-dropdown-button");
+  const mobileLanguageDropdownButton = document.getElementById("mobile-language-dropdown-button");
+
+  function handleScroll() {
     const currentScrollY = window.scrollY;
 
-    if (window.scrollY > 100) {
-      navbar.classList.add("bg-gradient-to-b");
-    } else {
-      navbar.classList.remove("bg-gradient-to-b");
-    }
+    navbar.classList.toggle("bg-gradient-to-b", currentScrollY > 100);
+    navbar.classList.toggle("-translate-y-full", currentScrollY > 40 && currentScrollY > lastScrollY);
 
-    if (currentScrollY > 40 && currentScrollY > lastScrollY) {
-      // User is scrolling down and has passed 30px
-      navbar.classList.add("-translate-y-full");
-    } else if (
-      currentScrollY < lastScrollY &&
-      lastScrollY - currentScrollY > 1
-    ) {
-      // User is scrolling up by more than 10px
-      navbar.classList.remove("-translate-y-full");
-    }
-
-    // Update the lastScrollY to the current position
     lastScrollY = currentScrollY;
+  }
+
+  function handleClickOutside(element, button, closeFn) {
+    return function (event) {
+      const target = event.target;
+      const isClickInside = element.contains(target);
+      const isClickOnButton = button.contains(target);
+
+      if (!isClickInside && !isClickOnButton && !element.classList.contains("hidden")) {
+        closeFn();
+      }
+    };
+  }
+
+  function toggleClassOnElement(element, className = "hidden") {
+    return function () {
+      element.classList.toggle(className);
+    };
+  }
+
+  window.addEventListener("scroll", handleScroll);
+
+  mobileOpenMenuButton.addEventListener("click", toggleClassOnElement(mobileMenu));
+  mobileCloseMenuButton.addEventListener("click", toggleClassOnElement(mobileMenu, "hidden"));
+  desktopLanguageDropdownButton.addEventListener("click", toggleClassOnElement(desktopLanguageDropdown));
+  mobileLanguageDropdownButton.addEventListener("click", toggleClassOnElement(mobileLanguageDropdown));
+
+  document.addEventListener("click", handleClickOutside(mobileMenu, mobileOpenMenuButton, toggleClassOnElement(mobileMenu, "hidden")));
+  document.addEventListener("click", handleClickOutside(desktopLanguageDropdown, desktopLanguageDropdownButton, toggleClassOnElement(desktopLanguageDropdown, "hidden")));
+
+  document.querySelectorAll("#mobile-menu a").forEach(link => {
+    link.addEventListener("click", toggleClassOnElement(mobileMenu, "hidden"));
   });
-
-  const portal = document.querySelector("#portal-container");
-  const desktopPortal = document.querySelector("#language-dropdown-dialog");
-  const desktopPortalButton = document.getElementById(
-    "language-dropdown-button",
-  );
-  const portalButton = document.getElementById("portal-button");
-  const portalDialog = document.getElementById("portal-dialog");
-  const innerPortalButton = document.getElementById("inner-portal-button");
-
-  function togglePortal() {
-    portal.classList.toggle("hidden");
-  }
-
-  function toggleDesktopPortal() {
-    desktopPortal.classList.toggle("hidden");
-  }
-
-  portalButton.addEventListener("click", togglePortal);
-  desktopPortalButton.addEventListener("click", toggleDesktopPortal);
-  innerPortalButton.addEventListener("click", togglePortal);
 </script>
