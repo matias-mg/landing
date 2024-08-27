@@ -1,4 +1,6 @@
 ---
+import Button from "./Button.astro";
+
 const CURRENT_YEAR = new Date().getFullYear();
 const FIGMA_LINK =
   "https://www.figma.com/proto/eIwPqCDbxSF5soH8jIKgob/Untitled?node-id=176-117&t=KDC9krjsmPYtiNpp-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1";
@@ -9,8 +11,10 @@ const FIGMA_LINK =
 >
   <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
     <div>
-      <h3 class="text-3xl text-blue-50 font-bold mb-2">Matías Medina</h3>
-      <p class="text-base md:max-w-md">
+      <h3 class="text-center text-3xl text-blue-50 font-bold mb-2 md:text-left">
+        Matías Medina
+      </h3>
+      <p class="text-center text-base text-pretty md:max-w-md md:text-left">
         Crafting pixel-perfect and performant web experiences. Passionate about
         React, Next.js and modern frontend technologies.
       </p>
@@ -19,7 +23,9 @@ const FIGMA_LINK =
       <div
         class="bg-gradient-to-br from-[#2a2a2a] to-[#3a3a3a] rounded-lg p-6 shadow-lg border border-[#4a4a4a] hover:border-[#5a5a5a] transition-all duration-300 group"
       >
-        <div class="flex items-center gap-3 mb-4">
+        <div
+          class="flex items-center gap-3 mb-4 justify-center md:justify-start"
+        >
           <svg
             fill="#a259ff"
             class="size-6"
@@ -34,16 +40,14 @@ const FIGMA_LINK =
             >Pixel-Perfect Development</span
           >
         </div>
-        <p class="mb-5">
+        <p class="mb-5 text-center text-pretty md:text-left">
           Curious about the design process? Compare this site with its Figma
           design to see how closely the final product aligns with pixel-perfect
           precision.
         </p>
-        <a
+        <Button
           href={FIGMA_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center px-5 py-2 rounded-full bg-gradient-to-r from-[#a259ff] to-[#b57aff] text-blue-50 font-medium transition-all duration-300 hover:shadow-lg hover:shadow-[#a259ff]/30 focus:outline-none focus:ring-2 focus:ring-[#a259ff] focus:ring-offset-2 hover:scale-105"
+          classStyles="w-full py-3 justify-center md:justify-start md:py-2 md:w-fit"
         >
           View Figma Design
           <svg
@@ -60,7 +64,7 @@ const FIGMA_LINK =
               d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
             ></path>
           </svg>
-        </a>
+        </Button>
       </div>
     </div>
   </div>
@@ -74,9 +78,7 @@ const FIGMA_LINK =
       <span class="text-sm">
         © {CURRENT_YEAR} Designed & Developed by Matías Medina.
       </span>
-      <span class="mt-1 text-xs">
-        Built with Astro and Tailwind CSS
-      </span>
+      <span class="mt-1 text-xs"> Built with Astro and Tailwind CSS </span>
     </a>
   </div>
 </footer>
