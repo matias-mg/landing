@@ -2,8 +2,8 @@
 import SectionTitle from "./SectionTitle.astro";
 import KanduiLightThemeImage from "../../public/kandui-light.webp";
 import KanduiDarkThemeImage from "../../public/kandui-dark.webp";
-import RGCorpImage from "../../public/rg-corp.webp";
-import SingleImageJobExperienceContainer from "./SingleImageJobExperienceContainer.astro";
+import RGCorpLightThemeImage from "../../public/rg-corp-light.webp";
+import RGCorpDarkThemeImage from "../../public/rg-corp-dark.webp";
 import DoubleImageExperienceContainer from "./DoubleImageExperienceContainer.astro";
 ---
 
@@ -16,7 +16,7 @@ import DoubleImageExperienceContainer from "./DoubleImageExperienceContainer.ast
         title="Professional Experience"
         classStyles="mb-6"
     />
-    <div class="flex flex-col gap-16">
+    <div class="flex flex-col gap-16 md:gap-32">
         <DoubleImageExperienceContainer
             jobTitle="React Team Leader"
             company="Kandui"
@@ -44,11 +44,8 @@ import DoubleImageExperienceContainer from "./DoubleImageExperienceContainer.ast
             leftImageAlt="Kandui dark theme main trading view"
             rightImageAlt="Kandui ligth theme main trading view"
         />
-        <SingleImageJobExperienceContainer
+        <DoubleImageExperienceContainer
             right={false}
-            imgSrc="rg-corp.webp"
-            img={RGCorpImage}
-            imgAlt="RG Corp KYC form view"
             jobTitle="React Developer"
             company="RG Corp"
             from="January 2020"
@@ -64,6 +61,14 @@ import DoubleImageExperienceContainer from "./DoubleImageExperienceContainer.ast
                 "CSS3",
                 "styled-components",
             ]}
+            leftImage={RGCorpLightThemeImage}
+            rightImage={RGCorpDarkThemeImage}
+            leftImageSrc="rg-corp-dark.webp"
+            rightImageSrc="rg-corp-light.webp"
+            loading="lazy"
+            classStyles=""
+            leftImageAlt="RG Corp dark theme KYC form view"
+            rightImageAlt="RG Corp ligth theme KYC form view"
         />
     </div>
     <div
