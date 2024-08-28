@@ -4,6 +4,8 @@ import LinkedInIcon from "./icons/LinkedInIcon.astro";
 import HoverButton from "./HoverButton.astro";
 import HeroBigShape from "./icons/HeroBigShape.astro";
 import HeroDoubleLine from "./icons/HeroDoubleLine.astro";
+import BlurImage from "./BlurImage.astro";
+import ProfilePic from "../../public/profile-pic.webp";
 ---
 
 <section
@@ -27,7 +29,7 @@ import HeroDoubleLine from "./icons/HeroDoubleLine.astro";
             >Open to Work</span
         >
         <p
-            class="font-light text-blue-300 text-pretty my-6 max-w-lg md:max-w-xl md:my-6 md:leading-6 md:text-lg lg:mb-8 lg:max-w-2xl "
+            class="font-light text-blue-300 text-pretty my-6 max-w-lg md:max-w-xl md:my-6 md:leading-6 md:text-lg lg:mb-8 lg:max-w-2xl"
         >
             Hello! I’m a frontend developer with 4 years of experience in React
             and team leadership skills. I create intuitive and efficient UI,
@@ -55,9 +57,11 @@ import HeroDoubleLine from "./icons/HeroDoubleLine.astro";
         <div
             class="size-40 rounded-full border-2 border-blue-600 border-opacity-30 md:size-60"
         >
-            <img
+            <BlurImage
                 src="profile-pic.webp"
-                class="size-full rounded-full"
+                img={ProfilePic}
+                loading="eager"
+                classStyles="size-full rounded-full"
                 alt="Matías face in a circular shape"
             />
             <div

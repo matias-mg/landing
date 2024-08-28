@@ -1,6 +1,8 @@
 ---
 import JobExperienceContainer from "./JobExperienceContainer.astro";
 import SectionTitle from "./SectionTitle.astro";
+import KanduiImage from "../../public/experience-1.webp"
+import RGCorpImage from "../../public/experience-2.webp"
 ---
 
 <section id="experience" class="relative max-w-7xl mx-auto mt-28 scroll-mt-8 md:mt-44">
@@ -8,8 +10,10 @@ import SectionTitle from "./SectionTitle.astro";
     <div class="flex flex-col gap-16">
         <JobExperienceContainer
             right
-            eagerImg
-            imgSrc="./experience-1.webp"
+            imgSrc="experience-1.webp"
+            img={KanduiImage}
+            imgLoading="eager"
+            imgAlt="Kandui trading main view"
             jobTitle="React Team Leader"
             company="Kandui"
             from="August 2022"
@@ -30,7 +34,9 @@ import SectionTitle from "./SectionTitle.astro";
         />
         <JobExperienceContainer
             right={false}
-            imgSrc="./experience-2.webp"
+            imgSrc="experience-2.webp"
+            img={RGCorpImage}
+            imgAlt="RG Corp KYC form view"
             jobTitle="React Developer"
             company="RG Corp"
             from="January 2020"

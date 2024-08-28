@@ -1,10 +1,13 @@
 ---
+import BlurImage from "./BlurImage.astro";
 import ExperienceCard from "./ExperienceCard.astro";
 
 const {
     right = true,
-    eagerImg = false,
     imgSrc,
+    imgLoading,
+    img,
+    imgAlt,
     jobTitle,
     company,
     from,
@@ -18,12 +21,16 @@ const {
     class="flex flex-col items-center justify-between w-full lg:relative lg:flex-row"
 >
     <div class={`relative w-full lg:max-w-[768px] ${!right && "ml-auto"}`}>
-        <div class="absolute inset-0 bg-slate-950 transition-opacity opacity-40 hover:opacity-0"></div>
-        <img
+        <div
+            class="absolute inset-0 bg-slate-950 transition-opacity opacity-40 hover:opacity-0"
+        >
+        </div>
+        <BlurImage
             src={imgSrc}
-            class="size-full"
-            alt="Kandui trading main view"
-            loading={eagerImg ? "eager" : "lazy"}
+            img={img}
+            loading={imgLoading}
+            classStyles="size-full"
+            alt={imgAlt}
         />
     </div>
     <ExperienceCard

@@ -1,0 +1,49 @@
+---
+import { Image } from "astro:assets";
+
+const { src = "", img, loading = "lazy", classStyles = "", alt, ...props } = Astro.props;
+const IMG_EXTENSION_REGEX = /^(.*)(\.[^.]+)$/;
+const [filename, imgExtension] = src.match(IMG_EXTENSION_REGEX).slice(1);
+---
+
+<div
+    class={`blur-placeholder ${classStyles}`}
+    style={`background-image: url(${filename}-small${imgExtension});`}
+    {...props}
+>
+    <Image src={img} loading={loading} class={classStyles} alt={alt} />
+</div>
+
+<style>
+    .blur-placeholder {
+        background-size: cover;
+        background-position: center;
+    }
+
+    .blur-placeholder img {
+        opacity: 0;
+    }
+    
+    .blur-placeholder.loaded > img {
+        opacity: 1;
+    }
+</style>
+
+<script>
+    const blurPlaceholderContainers =
+        document.querySelectorAll(".blur-placeholder");
+
+    blurPlaceholderContainers.forEach((container) => {
+        const img = container.querySelector("img");
+
+        function toggleLoadedClass() {
+            container.classList.add("loaded");
+        }
+
+        if (img.complete) {
+            toggleLoadedClass();
+        } else {
+            img.addEventListener("load", toggleLoadedClass);
+        }
+    });
+</script>
