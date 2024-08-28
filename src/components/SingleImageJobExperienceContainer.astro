@@ -1,0 +1,36 @@
+---
+import BaseJobExperienceContainer from "./BaseJobExperienceContainer.astro";
+import BlurImage from "./BlurImage.astro";
+
+const {
+    right = true,
+    imgSrc,
+    imgLoading,
+    img,
+    imgAlt,
+    jobTitle,
+    company,
+    from,
+    to,
+    description,
+    techList,
+} = Astro.props;
+---
+
+<BaseJobExperienceContainer
+    right={right}
+    jobTitle={jobTitle}
+    company={company}
+    from={from}
+    to={to}
+    description={description}
+    techList={techList}
+>
+    <BlurImage
+        src={imgSrc}
+        img={img}
+        loading={imgLoading}
+        classStyles="size-full"
+        alt={imgAlt}
+    />
+</BaseJobExperienceContainer>

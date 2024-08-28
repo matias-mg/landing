@@ -1,0 +1,43 @@
+---
+import BaseJobExperienceContainer from "./BaseJobExperienceContainer.astro";
+import ImageComparisonSlider from "./ImageComparisonSlider.astro";
+
+const {
+    right = true,
+    jobTitle,
+    company,
+    from,
+    to,
+    description,
+    techList,
+    leftImage,
+    rightImage,
+    leftImageSrc,
+    rightImageSrc,
+    loading,
+    classStyles,
+    leftImageAlt,
+    rightImageAlt,
+} = Astro.props;
+---
+
+<BaseJobExperienceContainer
+    right={right}
+    jobTitle={jobTitle}
+    company={company}
+    from={from}
+    to={to}
+    description={description}
+    techList={techList}
+>
+    <ImageComparisonSlider
+        leftImage={leftImage}
+        rightImage={rightImage}
+        leftImageSrc={leftImageSrc}
+        rightImageSrc={rightImageSrc}
+        loading={loading}
+        classStyles={classStyles}
+        leftImageAlt={leftImageAlt}
+        rightImageAlt={rightImageAlt}
+    />
+</BaseJobExperienceContainer>

@@ -1,0 +1,188 @@
+---
+import BlurImage from "./BlurImage.astro";
+
+const {
+  leftImage,
+  rightImage,
+  leftImageSrc = "",
+  rightImageSrc = "",
+  loading = "lazy",
+  classStyles = "",
+  leftImageAlt = "",
+  rightImageAlt = "",
+} = Astro.props;
+---
+
+<div class="image-comparison">
+  <BlurImage
+    img={leftImage}
+    src={leftImageSrc}
+    alt={leftImageAlt}
+    loading={loading}
+    classStyles={`image image-left ${classStyles}`}
+  />
+  <BlurImage
+    img={rightImage}
+    src={rightImageSrc}
+    alt={rightImageAlt}
+    loading={loading}
+    classStyles={`image image-right ${classStyles}`}
+  />
+  <div class="slider-handle">
+    <div class="slider-line bg-blue-300"></div>
+    <div class="slider-arrows text-blue-300">
+      <svg
+        class="slider-arrow left-arrow"
+        viewBox="0 0 24 24"
+        width="44"
+        height="44"
+      >
+        <path
+          d="M15 18l-6-6 6-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+      <svg
+        class="slider-arrow right-arrow"
+        viewBox="0 0 24 24"
+        width="44"
+        height="44"
+      >
+        <path
+          d="M9 18l6-6-6-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<style>
+  .image-comparison {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Adjust as needed */
+    overflow: hidden;
+    user-select: none;
+  }
+
+  .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  .image-right {
+    clip-path: inset(0 0 0 50%);
+  }
+
+  .slider-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 80px;
+    transform: translateX(-50%);
+    cursor: ew-resize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slider-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+
+  .slider-arrows {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 0px;
+  }
+
+  .slider-arrow {
+    width: 44px;
+    height: 44px;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+  }
+
+  /* Prevent text selection */
+  .slider-handle,
+  .slider-arrow {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+</style>
+
+<script>
+  const container = document.querySelector(".image-comparison") as HTMLElement;
+  const handle = document.querySelector(".slider-handle") as HTMLElement;
+  const rightImage = document.querySelector(".image-right") as HTMLElement;
+
+  let isDragging = false;
+
+  const getPercentage = (pixelValue) => {
+    return (pixelValue / container.offsetWidth) * 100;
+  };
+
+  const updateSliderPosition = (x) => {
+    const percentage = getPercentage(x);
+    handle.style.left = `${percentage}%`;
+    rightImage.style.clipPath = `inset(0 0 0 ${percentage}%)`;
+  };
+
+  const handleMouseDown = (e) => {
+    isDragging = true;
+    e.preventDefault();
+  };
+
+  const handleMouseUp = () => {
+    isDragging = false;
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    const rect = container.getBoundingClientRect();
+    const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
+    updateSliderPosition(x);
+    e.preventDefault();
+  };
+
+  handle.addEventListener("mousedown", handleMouseDown);
+  document.addEventListener("mouseup", handleMouseUp);
+  document.addEventListener("mousemove", handleMouseMove);
+
+  // Touch events for mobile support
+  handle.addEventListener("touchstart", (e) => {
+    isDragging = true;
+    e.preventDefault();
+  });
+
+  document.addEventListener("touchend", handleMouseUp);
+  document.addEventListener("touchmove", (e) => {
+    if (!isDragging) return;
+    const touch = e.touches[0];
+    const rect = container.getBoundingClientRect();
+    const x = Math.max(0, Math.min(touch.clientX - rect.left, rect.width));
+    updateSliderPosition(x);
+    e.preventDefault();
+  });
+</script>

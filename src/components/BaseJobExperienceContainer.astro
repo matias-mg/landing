@@ -1,13 +1,8 @@
 ---
-import BlurImage from "./BlurImage.astro";
 import ExperienceCard from "./ExperienceCard.astro";
 
 const {
     right = true,
-    imgSrc,
-    imgLoading,
-    img,
-    imgAlt,
     jobTitle,
     company,
     from,
@@ -25,13 +20,7 @@ const {
             class="absolute inset-0 bg-slate-950 transition-opacity opacity-40 hover:opacity-0"
         >
         </div>
-        <BlurImage
-            src={imgSrc}
-            img={img}
-            loading={imgLoading}
-            classStyles="size-full"
-            alt={imgAlt}
-        />
+        <slot />
     </div>
     <ExperienceCard
         right={right}
