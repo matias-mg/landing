@@ -97,6 +97,16 @@ const {
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: bounce 4s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateX(calc(-50% - 10px));
+    }
+    50% {
+      transform: translateX(calc(-50% + 10px));
+    }
   }
 
   .slider-line {
@@ -130,6 +140,10 @@ const {
     -ms-user-select: none;
     user-select: none;
   }
+
+  .image-comparison:hover .slider-handle {
+    animation: none;
+  }
 </style>
 
 <script>
@@ -138,6 +152,8 @@ const {
   const rightImage = document.querySelector(".image-right") as HTMLElement;
 
   let isDragging = false;
+  let animationRemoved = false;
+  let lastPosition = 50;
 
   const getPercentage = (pixelValue) => {
     return (pixelValue / container.offsetWidth) * 100;
@@ -146,7 +162,9 @@ const {
   const updateSliderPosition = (x) => {
     const percentage = getPercentage(x);
     handle.style.left = `${percentage}%`;
+    handle.style.transform = 'translateX(-50%)';
     rightImage.style.clipPath = `inset(0 0 0 ${percentage}%)`;
+    lastPosition = percentage;
   };
 
   const handleMouseDown = (e) => {
@@ -166,9 +184,30 @@ const {
     e.preventDefault();
   };
 
+  const removeAnimation = () => {
+    if (!animationRemoved) {
+      handle.style.animation = 'none';
+      handle.style.left = `${lastPosition}%`;
+      handle.style.transform = 'translateX(-50%)';
+      rightImage.style.clipPath = `inset(0 0 0 ${lastPosition}%)`;
+      animationRemoved = true;
+    }
+  };
+
+  const updateClipPath = () => {
+    if (!animationRemoved) {
+      const rect = container.getBoundingClientRect();
+      const handleRect = handle.getBoundingClientRect();
+      const percentage = ((handleRect.left + handleRect.width / 2) - rect.left) / rect.width * 100;
+      rightImage.style.clipPath = `inset(0 0 0 ${percentage}%)`;
+      lastPosition = percentage;
+    }
+  };
+
   handle.addEventListener("mousedown", handleMouseDown);
   document.addEventListener("mouseup", handleMouseUp);
   document.addEventListener("mousemove", handleMouseMove);
+  container.addEventListener("mouseover", removeAnimation);
 
   // Touch events for mobile support
   handle.addEventListener("touchstart", (e) => {
@@ -185,4 +224,15 @@ const {
     updateSliderPosition(x);
     e.preventDefault();
   });
+
+  container.addEventListener("touchstart", removeAnimation);
+
+  // Update clip path during animation
+  function animationFrame() {
+    if (!animationRemoved) {
+      updateClipPath();
+    }
+    requestAnimationFrame(animationFrame);
+  }
+  animationFrame();
 </script>
