@@ -6,6 +6,7 @@ import HeroBigShape from "./icons/HeroBigShape.astro";
 import HeroDoubleLine from "./icons/HeroDoubleLine.astro";
 import BlurImage from "./BlurImage.astro";
 import ProfilePic from "../../public/profile-pic.webp";
+import EmailIcon from "./icons/EmailIcon.astro";
 ---
 
 <section
@@ -35,12 +36,23 @@ import ProfilePic from "../../public/profile-pic.webp";
             and team leadership skills. I create intuitive and efficient UI,
             with a focus on continuous improvement and team collaboration.
         </p>
-        <div class="flex justify-center items-center gap-4 md:justify-start">
+        <div
+            class="flex justify-center items-center gap-2 sm:gap-4 md:justify-start"
+        >
             <HoverButton
                 href="https://drive.google.com/file/d/1lkNuPJ0Ru5QMC16KDlE1V91WxtB9aahA/view?usp=drive_link"
             >
                 Download CV
                 <DownloadIcon class="ml size-4" />
+            </HoverButton>
+            <HoverButton
+                py="py-0"
+                px="px-0"
+                size="size-11"
+                href="mailto:matiasmg.dev@gmail.com"
+                ariaLabel="Email Icon"
+            >
+                <EmailIcon class="size-5" />
             </HoverButton>
             <HoverButton
                 py="py-0"

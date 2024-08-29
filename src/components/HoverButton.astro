@@ -6,6 +6,7 @@ const {
     size = "",
     href = "",
     ariaLabel = "",
+    classStyles = "",
     ...props
 } = Astro.props;
 ---
@@ -17,8 +18,8 @@ const {
     aria-label={ariaLabel}
     {...props}
     class={`relative z-0 flex justify-center items-center gap-2 overflow-hidden rounded-full border
-            text-lg border-blue-600 ${px} ${py} ${size} font-semibold
-            text-blue-600 transition-all duration-500
+            text-base border-blue-600 ${px} ${py} ${size} font-semibold
+            text-blue-600 transition-all duration-500 sm:text-lg ${classStyles}
             
             before:absolute before:inset-0
             before:-z-10 before:translate-x-[150%]
