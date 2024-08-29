@@ -29,7 +29,7 @@ const {
     loading={loading}
     classStyles={`image image-right ${classStyles}`}
   />
-  <div class="slider-handle z-20">
+  <div class="slider-handle z-30">
     <div class="slider-line bg-blue-300"></div>
     <div class="slider-arrows text-blue-300">
       <svg
@@ -100,11 +100,12 @@ const {
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: bounce 4s infinite;
+    animation: bounce 6s infinite;
   }
 
   @keyframes bounce {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateX(calc(-50% - 10px));
     }
     50% {
@@ -150,65 +151,63 @@ const {
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     var containers = document.querySelectorAll('.image-comparison');
-    
-    containers.forEach(function(container: HTMLElement) {
+
+    containers.forEach(function (container: HTMLElement) {
       var handle = container.querySelector('.slider-handle') as HTMLElement;
       var rightImage = container.querySelector('.image-right') as HTMLElement;
       var isDragging = false;
       var animationRemoved = false;
       var lastPosition = 50;
+      var lastX = 0;
 
       function getPercentage(pixelValue) {
         return (pixelValue / container.offsetWidth) * 100;
       }
 
       function updateSliderPosition(x) {
-        var percentage = getPercentage(x);
+        var percentage = Math.max(0, Math.min(100, getPercentage(x)));
         handle.style.left = percentage + '%';
         handle.style.transform = 'translateX(-50%)';
-        rightImage.style.clipPath = 'inset(0 0 0 ' + percentage + '%)';
+        rightImage.style.clipPath = `inset(0 0 0 ${percentage}%)`;
         lastPosition = percentage;
       }
 
-      function handleMouseDown(e) {
+      function handleDragStart(e) {
         isDragging = true;
+        removeAnimation();
+        container.style.cursor = 'grabbing';
         e.preventDefault();
       }
 
-      function handleMouseUp() {
+      function handleDragEnd() {
         isDragging = false;
+        container.style.cursor = 'default';
       }
 
-      function handleMouseMove(e) {
+      function handleDragMove(e) {
         if (!isDragging) return;
-        var rect = container.getBoundingClientRect();
-        var x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
-        updateSliderPosition(x);
-        e.preventDefault();
+        var clientX = e.clientX || (e.touches && e.touches[0].clientX);
+        if (clientX) {
+          lastX = clientX - container.getBoundingClientRect().left;
+          requestAnimationFrame(updatePosition);
+        }
       }
 
-      function handleTouchStart(e) {
-        isDragging = true;
-        e.preventDefault();
-      }
-
-      function handleTouchMove(e) {
-        if (!isDragging) return;
-        var touch = e.touches[0];
-        var rect = container.getBoundingClientRect();
-        var x = Math.max(0, Math.min(touch.clientX - rect.left, rect.width));
-        updateSliderPosition(x);
-        e.preventDefault();
+      function updatePosition() {
+        if (isDragging) {
+          updateSliderPosition(lastX);
+          requestAnimationFrame(updatePosition);
+        }
       }
 
       function removeAnimation() {
         if (!animationRemoved) {
           handle.style.animation = 'none';
-          handle.style.left = lastPosition + '%';
+          handle.style.left = `${lastPosition}%`;
           handle.style.transform = 'translateX(-50%)';
-          rightImage.style.clipPath = 'inset(0 0 0 ' + lastPosition + '%)';
+          rightImage.style.clipPath = `inset(0 0 0 ${lastPosition}%)`;
           animationRemoved = true;
         }
       }
@@ -217,31 +216,36 @@ const {
         if (!animationRemoved) {
           var rect = container.getBoundingClientRect();
           var handleRect = handle.getBoundingClientRect();
-          var percentage = ((handleRect.left + handleRect.width / 2) - rect.left) / rect.width * 100;
-          rightImage.style.clipPath = 'inset(0 0 0 ' + percentage + '%)';
+          var percentage =
+            ((handleRect.left + handleRect.width / 2 - rect.left) /
+              rect.width) *
+            100;
+          rightImage.style.clipPath = `inset(0 0 0 ${percentage}%)`;
           lastPosition = percentage;
+          requestAnimationFrame(updateClipPath);
         }
       }
 
-      function animationFrame() {
-        if (!animationRemoved) {
-          updateClipPath();
-        }
-        requestAnimationFrame(animationFrame);
-      }
+      handle.addEventListener('mousedown', handleDragStart);
+      handle.addEventListener('touchstart', handleDragStart, {
+        passive: false,
+      });
 
-      handle.addEventListener('mousedown', handleMouseDown);
-      container.addEventListener('mousemove', handleMouseMove);
-      container.addEventListener('mouseup', handleMouseUp);
-      container.addEventListener('mouseleave', handleMouseUp);
+      document.addEventListener('mousemove', handleDragMove);
+      document.addEventListener('touchmove', handleDragMove, {
+        passive: false,
+      });
+
+      document.addEventListener('mouseup', handleDragEnd);
+      document.addEventListener('touchend', handleDragEnd);
+
       container.addEventListener('mouseover', removeAnimation);
 
-      handle.addEventListener('touchstart', handleTouchStart);
-      container.addEventListener('touchmove', handleTouchMove);
-      container.addEventListener('touchend', handleMouseUp);
-      container.addEventListener('touchcancel', handleMouseUp);
+      // Start the animation update loop
+      requestAnimationFrame(updateClipPath);
 
-      animationFrame();
+      // Initial position setup
+      updateSliderPosition(container.offsetWidth / 2);
     });
   });
 </script>
