@@ -1,6 +1,10 @@
 ---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import LanguageDropdown from "./LanguageDropdown.astro";
 import GlobeIcon from "./icons/GlobeIcon.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang); 
 ---
 
 <div
@@ -39,16 +43,16 @@ import GlobeIcon from "./icons/GlobeIcon.astro";
             class="flex items-center [&>a]:transition-colors [&>a]:cursor-pointer"
           >
             <li>
-              <a class="hover:text-blue-100 p-4" href="#about-me">About me</a>
+              <a class="hover:text-blue-100 p-4" href="#about-me">{t("header.about-me")}</a>
             </li>
             <li>
               <a href="#experience" class="hover:text-blue-100 p-4"
-                >Experience</a
+                >{t("header.experience")}</a
               >
             </li>
             <li>
               <a class="hover:text-blue-100 p-4" href="#technologies"
-                >Technologies</a
+                >{t("header.technologies")}</a
               >
             </li>
           </ul>
@@ -98,13 +102,13 @@ import GlobeIcon from "./icons/GlobeIcon.astro";
     </button>
     <ul class="space-y-6">
       <li>
-        <a class="hover:text-sky-500" href="#about-me">About me</a>
+        <a class="hover:text-sky-500" href="#about-me">{t("header.about-me")}</a>
       </li>
       <li>
-        <a href="#experience" class="hover:text-sky-500">Experience</a>
+        <a href="#experience" class="hover:text-sky-500">{t("header.experience")}</a>
       </li>
       <li>
-        <a class="hover:text-sky-500" href="#technologies">Technologies</a>
+        <a class="hover:text-sky-500" href="#technologies">{t("header.technologies")}</a>
       </li>
     </ul>
     <div class="mt-6 pt-6 border-t border-slate-700">
