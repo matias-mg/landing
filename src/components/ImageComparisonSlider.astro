@@ -4,7 +4,6 @@ import BlurImage from "./BlurImage.astro";
 const {
   leftImage,
   rightImage,
-  id = "",
   leftImageSrc = "",
   rightImageSrc = "",
   loading = "lazy",
@@ -14,7 +13,7 @@ const {
 } = Astro.props;
 ---
 
-<div class="image-comparison">
+<div class="peer image-comparison">
   <BlurImage
     img={leftImage}
     src={leftImageSrc}
@@ -29,7 +28,7 @@ const {
     loading={loading}
     classStyles={`image image-right ${classStyles}`}
   />
-  <div class="slider-handle z-30">
+  <div class="slider-handle z-30 cursor-pointer">
     <div class="slider-line bg-blue-300"></div>
     <div class="slider-arrows text-blue-300">
       <svg
