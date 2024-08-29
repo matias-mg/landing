@@ -19,19 +19,11 @@ const TECH_LIST = [
         iconRoute: "./nextjs-icon.svg",
     },
     {
-        name: "TypeScript",
-        classStyles: "bg-[#007ACC]",
-        subtitle: "JavaScript with syntax for types.",
-        description:
-            "Developed and maintained by Microsoft, TypeScript enhances JavaScript by adding static types, enabling developers to catch errors early and improving code quality.",
-        iconRoute: "./typescript-icon.svg",
-    },
-    {
         name: "GraphQL",
         classStyles: "bg-gradient-to-t from-[#1B0514] to-[#37162C]",
         subtitle: "A query language for your API",
         description:
-            "An open-source data query language originally developed by Facebook, GraphQL enables clients to request exactly the data they need, optimizing API performance and flexibility.",
+        "An open-source data query language originally developed by Facebook, GraphQL enables clients to request exactly the data they need, optimizing API performance and flexibility.",
         iconRoute: "./graphql-icon.svg",
     },
     {
@@ -41,6 +33,14 @@ const TECH_LIST = [
         description:
             "Highly regarded for its flexibility, Tailwind CSS provides low-level utility classes that allow developers to build fully custom designs without leaving their HTML.",
         iconRoute: "./tailwind-icon.svg",
+    },
+    {
+        name: "TypeScript",
+        classStyles: "bg-[#007ACC]",
+        subtitle: "JavaScript with syntax for types.",
+        description:
+            "Developed and maintained by Microsoft, TypeScript enhances JavaScript by adding static types, enabling developers to catch errors early and improving code quality.",
+        iconRoute: "./typescript-icon.svg",
     },
     {
         name: "Storybook",
@@ -82,7 +82,7 @@ const ICON_CONTAINER_BASE_STYLES =
                 {
                     TECH_LIST.map((tech, idx) => (
                         <div
-                            class="inline-block mx-1.5 md:mx-3 cursor-pointer my-1"
+                            class="inline-block mx-[5px] md:mx-3 cursor-pointer my-1"
                             data-tech={JSON.stringify(tech)}
                         >
                             <div
