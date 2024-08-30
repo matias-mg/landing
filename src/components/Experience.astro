@@ -5,6 +5,10 @@ import KanduiDarkThemeImage from "../../public/kandui-dark.webp";
 import RGCorpLightThemeImage from "../../public/rg-corp-light.webp";
 import RGCorpDarkThemeImage from "../../public/rg-corp-dark.webp";
 import DoubleImageExperienceContainer from "./DoubleImageExperienceContainer.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang); 
 ---
 
 <section
@@ -12,17 +16,17 @@ import DoubleImageExperienceContainer from "./DoubleImageExperienceContainer.ast
     class="relative max-w-7xl mx-auto mt-28 scroll-mt-8 md:mt-44"
 >
     <SectionTitle
-        prefix="Summary of my"
-        title="Professional Experience"
+        prefix={t("experience.prefix")}
+        title={t("experience.title")}
         classStyles="mb-6"
     />
     <div class="flex flex-col gap-16 md:gap-32">
         <DoubleImageExperienceContainer
-            jobTitle="React Team Leader"
+            jobTitle={t("experience.kandui-job-title")}
             company="Kandui"
             from="August 2022"
             to="September 2023"
-            description="Led UX/UI and React team at a FinTech startup, delivering investment-focused products and scalable, user-centric tools through strategic frontend development and design."
+            description={t("experience.kandui-job-description")}
             techList={[
                 "Next.js",
                 "React",
@@ -46,11 +50,11 @@ import DoubleImageExperienceContainer from "./DoubleImageExperienceContainer.ast
         />
         <DoubleImageExperienceContainer
             right={false}
-            jobTitle="React Developer"
+            jobTitle={t("experience.rg-corp-job-title")}
             company="RG Corp"
             from="January 2020"
             to="July 2022"
-            description="Designed and developed views for a FinTech startup, focused on user-friendly KYC forms and customer enrollment. Refactored legacy React components using hooks to enhance usability."
+            description={t("experience.rg-corp-job-description")}
             techList={[
                 "React",
                 "TypeScript",
