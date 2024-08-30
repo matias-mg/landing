@@ -1,5 +1,10 @@
 ---
+import { getLangFromUrl } from "../i18n/utils";
+
 const { jobTitle, company, from, to, description, techList, right = true } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const dateFormater = new Intl.DateTimeFormat(lang, { year: 'numeric', month: 'long' }).format
 ---
 
 <div
@@ -10,7 +15,7 @@ const { jobTitle, company, from, to, description, techList, right = true } = Ast
         <span class="text-blue-600 text-base font-medium sm:ml-2">• {company}</span
         >
     </h3>
-    <p class="text-gray-500 font-light text-sm">{from} – {to}</p>
+    <p class="text-gray-500 font-light text-sm">{dateFormater(from)} – {dateFormater(to)}</p>
     <p class="my-4 font-light text-pretty leading-5">{description}</p>
     <div class="flex flex-wrap gap-2">
         {
