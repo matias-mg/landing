@@ -1,5 +1,10 @@
 ---
+import { getLangFromUrl } from "../i18n/utils";
+import { languages } from "../i18n/ui";
+import CheckIcon from "../components/icons/CheckIcon.astro";
+
 const { id = "", classStyles = "", ...props } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <div
@@ -12,28 +17,18 @@ const { id = "", classStyles = "", ...props } = Astro.props;
     style="--button-width: 24px;"
     {...props}
 >
-    <div
-        class="py-2 px-4 flex items-center cursor-pointer hover:text-blue-100"
+{Object.entries(languages).map(([langKey, label]) => (
+    <a
+        href={`/${langKey}/`}
+        class={`py-2 px-4 flex items-center cursor-pointer hover:text-blue-100 ${lang === langKey && "text-blue-600"} ${lang === langKey && "pointer-events-none"}`}
         role="option"
         tabindex="-1"
         aria-selected="false"
     >
-        English <svg width="14" height="12" viewBox="0 0 11 9" fill="none"><g><rect x="2.10889" y="7.03003" width="10" height="2" transform="rotate(-44.6688 2.10889 7.03003)"></rect><rect x="1.42236" y="3.48999" width="5" height="2" transform="rotate(45.3312 1.42236 3.48999)"></rect></g></svg>
-    </div>
-    <div
-        class="py-2 px-4 flex items-center cursor-pointer hover:text-blue-100"
-        role="option"
-        tabindex="-1"
-        aria-selected="false"
-    >
-        Español
-    </div>
-    <div
-        class="py-2 px-4 flex items-center cursor-pointer hover:text-blue-100"
-        role="option"
-        tabindex="-1"
-        aria-selected="false"
-    >
-        Português
-    </div>
+        {label}
+        <CheckIcon
+            class={`${lang === langKey ? "inline" : "hidden"} size-4 text-blue-600 my-auto ml-auto`}
+        />
+    </a>
+))}
 </div>
