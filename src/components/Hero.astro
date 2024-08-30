@@ -18,8 +18,25 @@ const buildCVLanguageFlag = () => {
     return lang
 };
 
-const CV_DOWNLOAD_URL = `/cvs/${buildCVLanguageFlag()}-cv.pdf`
+const CV_DOWNLOAD_URL = `/cvs/matias-medina-cv-${buildCVLanguageFlag().toUpperCase()}.pdf`
 const CV_DOWNLOAD_FILENAME = `[${lang.toUpperCase()}] CV Matías Medina.pdf`
+
+function downloadFile(event) {
+  event.preventDefault();
+  fetch(CV_DOWNLOAD_URL)
+    .then(response => response.blob())
+    .then(blob => {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = CV_DOWNLOAD_FILENAME;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    })
+    .catch(error => console.error('Error downloading the file:', error));
+}
 ---
 
 <section

@@ -1,6 +1,7 @@
 ---
-import '@fontsource-variable/inter';
-import { getLangFromUrl } from '../i18n/utils';
+import SpeedInsights from "@vercel/speed-insights/astro";
+import "@fontsource-variable/inter";
+import { getLangFromUrl } from "../i18n/utils";
 
 interface Props {
 	title: string;
@@ -22,6 +23,7 @@ const lang = getLangFromUrl(Astro.url);
 		<title>{title}</title>
 	</head>
 	<body>
+		<SpeedInsights />
 		<slot />
 	</body>
 </html>
@@ -30,8 +32,8 @@ const lang = getLangFromUrl(Astro.url);
 	:root {
 	}
 	html {
-		background: #040C0D;
-		color: #B0C7CB;
+		background: #040c0d;
+		color: #b0c7cb;
 		font-size: 16px;
 	}
 </style>
