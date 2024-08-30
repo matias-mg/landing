@@ -1,79 +1,80 @@
 ---
+import { ui } from "../i18n/ui";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import SectionTitle from "./SectionTitle.astro";
+
+const ICON_CONTAINER_BASE_STYLES =
+    "flex justify-center items-center size-12 min-w-12 rounded-2xl ";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const techList = ui[lang]["technologies.list"];
 
 const TECH_LIST = [
     {
         name: "React",
         classStyles: "bg-black",
-        subtitle: "A JavaScript library for building user interfaces",
-        description:
-            "A widely-adopted library maintained by Meta, it makes creating interactive UIs straightforward, efficiently updating and rendering just the right components when data changes.",
-        iconRoute: "./react-icon.svg",
+        subtitle: techList.find(t => t.name === "React").subtitle,
+        description: techList.find(t => t.name === "React").description,
+        iconRoute: `/react-icon.svg`,
     },
     {
         name: "Next.js",
         classStyles: "bg-[#D9D9D9]",
-        subtitle: "The React Framework for the Web",
-        description:
-            "Used by some of the world's largest companies, Next.js enables you to create high-quality web applications with the power of React components.",
-        iconRoute: "./nextjs-icon.svg",
+        subtitle: techList.find(t => t.name === "Next.js").subtitle,
+        description: techList.find(t => t.name === "Next.js").description,
+        iconRoute: `/nextjs-icon.svg`,
     },
     {
         name: "GraphQL",
         classStyles: "bg-gradient-to-t from-[#1B0514] to-[#37162C]",
-        subtitle: "A query language for your API",
-        description:
-        "An open-source data query language originally developed by Facebook, GraphQL enables clients to request exactly the data they need, optimizing API performance and flexibility.",
-        iconRoute: "./graphql-icon.svg",
+        subtitle: techList.find(t => t.name === "GraphQL").subtitle,
+        description: techList.find(t => t.name === "GraphQL").description,
+        iconRoute: `/graphql-icon.svg`,
     },
     {
         name: "Tailwind CSS",
         classStyles: "bg-[#fff]",
-        subtitle: "A utility-first CSS framework",
-        description:
-            "Highly regarded for its flexibility, Tailwind CSS provides low-level utility classes that allow developers to build fully custom designs without leaving their HTML.",
-        iconRoute: "./tailwind-icon.svg",
+        subtitle: techList.find(t => t.name === "Tailwind CSS").subtitle,
+        description: techList.find(t => t.name === "Tailwind CSS").description,
+        iconRoute: `/tailwind-icon.svg`,
     },
     {
         name: "TypeScript",
         classStyles: "bg-[#007ACC]",
-        subtitle: "JavaScript with syntax for types.",
-        description:
-            "Developed and maintained by Microsoft, TypeScript enhances JavaScript by adding static types, enabling developers to catch errors early and improving code quality.",
-        iconRoute: "./typescript-icon.svg",
+        subtitle: techList.find(t => t.name === "TypeScript").subtitle,
+        description: techList.find(t => t.name === "TypeScript").description,
+        iconRoute: `/typescript-icon.svg`,
     },
     {
         name: "Storybook",
         classStyles: "bg-[#fff]",
-        subtitle: "UI component explorer for frontend developers",
-        description:
-            "Widely used in the frontend development community, Storybook allows developers to build, test, and showcase UI components in isolation, making UI development more organized and efficient.",
-        iconRoute: "./storybook-icon.svg",
+        subtitle: techList.find(t => t.name === "Storybook").subtitle,
+        description: techList.find(t => t.name === "Storybook").description,
+        iconRoute: `/storybook-icon.svg`,
     },
     {
         name: "Jest",
         classStyles: "bg-gradient-to-t from-[#461A20] to-[#77343E]",
-        subtitle: "Delightful JavaScript Testing",
-        description:
-            "Favored by many large projects, Jest is a robust testing framework that offers a simple setup, extensive features, and out-of-the-box support for various JavaScript frameworks.",
-        iconRoute: "./jest-icon.svg",
+        subtitle: techList.find(t => t.name === "Jest").subtitle,
+        description: techList.find(t => t.name === "Jest").description,
+        iconRoute: `/jest-icon.svg`,
     },
     {
         name: "React Testing Library",
         classStyles: "bg-gradient-to-t from-[#741618] to-[#A92321]",
-        subtitle: "Simple and complete testing utilities",
-        description:
-            "Focused on testing React components from a user’s perspective, this library promotes best practices by encouraging testing of the actual behavior of your application.",
-        iconRoute: "./testinglibrary-icon.svg",
+        subtitle: techList.find(t => t.name === "React Testing Library").subtitle,
+        description: techList.find(t => t.name === "React Testing Library").description,
+        iconRoute: `/testinglibrary-icon.svg`,
     },
 ];
-
-const ICON_CONTAINER_BASE_STYLES =
-    "flex justify-center items-center size-12 min-w-12 rounded-2xl ";
 ---
 
-<section id="technologies" class="relative max-w-5xl mx-auto mt-28 scroll-mt-8 md:mt-44">
-    <SectionTitle center prefix="Some of my favorite" title="Technologies" />
+<section
+    id="technologies"
+    class="relative max-w-5xl mx-auto mt-28 scroll-mt-8 md:mt-44"
+>
+    <SectionTitle center prefix={t("technologies.prefix")} title={t("technologies.title")} />
     <div
         class="flex items-center flex-col bg-slate-900 m-auto rounded-3xl px-2 mt-4"
     >
@@ -146,7 +147,8 @@ const ICON_CONTAINER_BASE_STYLES =
     </div>
     <div
         class="absolute -z-10 top-0 right-0 left-0 mx-auto size-[540px] filter blur-[110px] rounded-full animate-blob opacity-20 bg-blue-600"
-    />
+    >
+    </div>
 </section>
 
 <script>
