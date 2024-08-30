@@ -7,6 +7,10 @@ import HeroDoubleLine from "./icons/HeroDoubleLine.astro";
 import BlurImage from "./BlurImage.astro";
 import ProfilePic from "../../public/profile-pic.webp";
 import EmailIcon from "./icons/EmailIcon.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang); 
 ---
 
 <section
@@ -23,18 +27,16 @@ import EmailIcon from "./icons/EmailIcon.astro";
             />
         </h1>
         <h2 class="mb-2 font-base text-lg text-gray-500 md:text-lg">
-            UX/UI React Developer
+            {t("hero.headline")}
         </h2>
         <span
             class="bg-gradient-to-br from-teal-700 via-blue-600 to-teal-700 text-blue-50 text-sm font-normal me-2 py-1.5 px-4 rounded-full h-[26px] bg-[length:200%_200%] bg-left animate-background-scroll"
-            >Open to Work</span
+            >{t("hero.badge")}</span
         >
         <p
             class="font-light text-blue-300 text-pretty my-6 max-w-lg md:max-w-xl md:my-6 md:leading-6 md:text-lg lg:mb-8 lg:max-w-2xl"
         >
-            Hello! I’m a frontend developer with 4 years of experience in React
-            and team leadership skills. I create intuitive and efficient UI,
-            with a focus on continuous improvement and team collaboration.
+            {t("hero.description")}
         </p>
         <div
             class="flex justify-center items-center gap-2 sm:gap-4 md:justify-start"
@@ -42,7 +44,7 @@ import EmailIcon from "./icons/EmailIcon.astro";
             <HoverButton
                 href="https://drive.google.com/file/d/1lkNuPJ0Ru5QMC16KDlE1V91WxtB9aahA/view?usp=drive_link"
             >
-                Download CV
+                {t("hero.download-button")}
                 <DownloadIcon class="ml size-4" />
             </HoverButton>
             <HoverButton
