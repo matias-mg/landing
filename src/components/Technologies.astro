@@ -88,7 +88,7 @@ const TECH_LIST = [
                         >
                             <div
                                 data-icon-container
-                                class={`flex justify-center items-center size-16 overflow-hidden rounded-2xl duration-300 ease-in-out transition-all shadow-[0_0_5px_1px_rgba(0,0,0,0)] md:hover:scale-110 ${tech.classStyles}`}
+                                class={`flex justify-center items-center size-16 overflow-hidden rounded-2xl duration-300 ease-in-out transition-all shadow-[0_0_5px_1px_rgba(0,0,0,0)]  ${tech.classStyles}`}
                             >
                                 <img
                                     class="size-[85%]"
@@ -99,7 +99,7 @@ const TECH_LIST = [
                             </div>
                             <div
                                 data-circle-active-indicator
-                                class={`${idx === 0 ? "absolute" : "hidden"} -bottom-[17%] left-0 right-0 size-1.5 bg-blue-600 rounded-full mx-auto`}
+                                class={`${idx === 0 ? "absolute" : "hidden"} -bottom-[12px] left-0 right-0 size-1.5 bg-blue-600 rounded-full mx-auto`}
                             />
                         </div>
                     ))
@@ -199,6 +199,7 @@ const TECH_LIST = [
                 "[data-icon-container]",
             );
             circleActiveIndicator.classList.remove("hidden");
+            circleActiveIndicator.classList.add("absolute");
             iconContainerActiveIndicator.classList.add("shadow-blue-600");
         });
     });
