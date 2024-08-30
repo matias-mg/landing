@@ -1,16 +1,17 @@
 import { defineConfig, passthroughImageService } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
+import sitemap from "@astrojs/sitemap";
 import robotsTxt from 'astro-robots-txt';
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://matiasm.com",
-  integrations: [tailwind(), robotsTxt()],
+  integrations: [tailwind(), robotsTxt(), sitemap()],
   i18n: {
     defaultLocale: "en",
-    locales: ["en", "es", "pt"],
+    locales: ["en", "es", "pt"]
   },
   image: {
-    service: passthroughImageService(),
-  },
+    service: passthroughImageService()
+  }
 });
