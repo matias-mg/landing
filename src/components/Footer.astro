@@ -1,9 +1,13 @@
 ---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import Button from "./Button.astro";
 
 const CURRENT_YEAR = new Date().getFullYear();
 const FIGMA_LINK =
   "https://www.figma.com/proto/eIwPqCDbxSF5soH8jIKgob/Untitled?node-id=176-117&t=KDC9krjsmPYtiNpp-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <footer
@@ -15,8 +19,7 @@ const FIGMA_LINK =
         Matías Medina
       </h3>
       <p class="text-center text-base text-pretty md:max-w-md md:text-left">
-        Crafting pixel-perfect and performant web experiences. Passionate about
-        React, Next.js and modern frontend technologies.
+        {t("footer.self-description")}
       </p>
     </div>
     <div class="space-y-6">
@@ -37,19 +40,17 @@ const FIGMA_LINK =
             ></path></svg
           >
           <span class="text-xl text-blue-50 font-semibold"
-            >Pixel-Perfect Development</span
+            >{t("footer.figma-title")}</span
           >
         </div>
         <p class="mb-5 text-center text-pretty md:text-left">
-          Curious about the design process? Compare this site with its Figma
-          design to see how closely the final product aligns with pixel-perfect
-          precision.
+          {t("footer.figma-description")}
         </p>
         <Button
           href={FIGMA_LINK}
           classStyles="w-full py-3 justify-center md:justify-start md:py-2 md:w-fit"
         >
-          View Figma Design
+          {t("footer.figma-button-text")}
           <svg
             fill="none"
             class="w-5 h-5 ml-2 text-blue-50"
@@ -76,9 +77,9 @@ const FIGMA_LINK =
       class="flex flex-col justify-center text-gray-600 transition-colors hover:text-blue-600 m-auto w-fit p-4"
     >
       <span class="text-sm">
-        © {CURRENT_YEAR} Designed & Developed by Matías Medina.
+        © {CURRENT_YEAR} {t("footer.copyright")}
       </span>
-      <span class="mt-1 text-xs"> Built with Astro and Tailwind CSS </span>
+      <span class="mt-1 text-xs">{t("footer.built-with")}</span>
     </a>
   </div>
 </footer>
