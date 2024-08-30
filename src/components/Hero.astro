@@ -10,7 +10,20 @@ import EmailIcon from "./icons/EmailIcon.astro";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang); 
+const t = useTranslations(lang);
+
+const buildCVLink = () => {
+    switch (lang) {
+        case "en":
+            return "https://drive.google.com/file/d/1lkNuPJ0Ru5QMC16KDlE1V91WxtB9aahA/view?usp=drive_link";
+        case "es":
+            return "https://drive.google.com/file/d/1OTx_KDRmWEwJ42TMsSpttn1Q3lAKKu4v/view?usp=drive_link";
+        case "pt":
+            return "https://drive.google.com/file/d/1OTx_KDRmWEwJ42TMsSpttn1Q3lAKKu4v/view?usp=drive_link";
+        default:
+            return "https://drive.google.com/file/d/1lkNuPJ0Ru5QMC16KDlE1V91WxtB9aahA/view?usp=drive_link";
+    }
+};
 ---
 
 <section
@@ -41,9 +54,7 @@ const t = useTranslations(lang);
         <div
             class="flex justify-center items-center gap-2 sm:gap-4 md:justify-start"
         >
-            <HoverButton
-                href="https://drive.google.com/file/d/1lkNuPJ0Ru5QMC16KDlE1V91WxtB9aahA/view?usp=drive_link"
-            >
+            <HoverButton href={buildCVLink()}>
                 {t("hero.download-button")}
                 <DownloadIcon class="ml size-4" />
             </HoverButton>
