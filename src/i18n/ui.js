@@ -15,6 +15,8 @@ export const ui = {
         "header.about-me": "About me",
         "header.experience": "Experience",
         "header.technologies": "Technologies",
+        "header.select-label": "Select language",
+        "header.close-button-label": "Close navigation",
         // Hero translations
         "hero.headline": "UX/UI React Developer",
         "hero.badge": "Open to Work",
@@ -96,6 +98,8 @@ export const ui = {
         "header.about-me": "Sobre mí",
         "header.experience": "Experiencia",
         "header.technologies": "Tecnologías",
+        "header.select-label": "Selecciona idioma",
+        "header.close-button-label": "Cerrar navegación",
         // Hero translations
         "hero.headline": "Desarrollador React UX/UI",
         "hero.badge": "Disponible para trabajar",
@@ -177,6 +181,8 @@ export const ui = {
         "header.about-me": "Sobre mim",
         "header.experience": "Experiência",
         "header.technologies": "Tecnologias",
+        "header.select-label": "Selecione o idioma",
+        "header.close-button-label": "Fechar navegação",
         // Hero translations
         "hero.headline": "Desenvolvedor UX/UI React",
         "hero.badge": "Disponível para trabalhar",

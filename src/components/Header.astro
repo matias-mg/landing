@@ -1,10 +1,12 @@
 ---
+import { languages } from "../i18n/ui";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import LanguageDropdown from "./LanguageDropdown.astro";
 import GlobeIcon from "./icons/GlobeIcon.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang); 
+const languageLabel = languages[lang]
 ---
 
 <div
@@ -77,14 +79,14 @@ const t = useTranslations(lang);
 <div id="mobile-menu" class="hidden fixed inset-0 z-50 md:hidden">
   <div class="fixed inset-0 bg-black/20 backdrop-blur-sm"></div>
   <div
-    class="fixed top-4 right-4 w-full max-w-xs bg-blue-950 rounded-lg shadow-lg p-6 text-l font-normal text-blue-300"
+    class="fixed top-4 right-4 w-full max-w-[340px] bg-blue-950 rounded-lg shadow-lg p-6 text-l font-normal text-blue-300"
   >
     <button
       id="mobile-menu-close-button"
       type="button"
       class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center text-blue-300 hover:text-blue-100"
     >
-      <span class="sr-only">Close navigation</span>
+      <span class="sr-only">{t("header.close-button-label")}</span>
       <svg
         viewBox="0 0 10 10"
         class="w-2.5 h-2.5 overflow-visible"
@@ -114,14 +116,14 @@ const t = useTranslations(lang);
     <div class="mt-6 pt-6 border-t border-slate-700">
       <div class="flex items-center justify-between">
         <label for="theme" class="text-blue-300 font-light">
-          Select language
+          {t("header.select-label")}
         </label>
         <div
           id="mobile-language-dropdown-button"
           class="relative flex items-center ring-1 ring-slate-600 bg-slate-700 rounded-lg shadow-sm py-2 px-3 text-blue-100 font-semibold"
         >
           <GlobeIcon class="size-5 mr-2" />
-          English
+          {languageLabel}
           <svg class="w-6 h-6 ml-2 text-blue-500" fill="none">
             <path
               d="m15 11-3 3-3-3"
