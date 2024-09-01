@@ -88,7 +88,7 @@ export const ui = {
         "footer.figma-description": "Curious about the design process? Compare this site with its Figma design to see how closely the final product aligns with pixel-perfect precision.",
         "footer.figma-button-text": "View Figma Design",
         "footer.copyright": "Designed & Developed by Matías Medina.",
-        "footer.built-with": "Built with Astro and Tailwind CSS.",
+        "footer.built-with": "Built with Astro, Vanilla JS and Tailwind CSS.",
     },
     es: {
         // Site translations
@@ -171,7 +171,7 @@ export const ui = {
         "footer.figma-description": "¿Curioso sobre el proceso de diseño? Compara este sitio con su diseño en Figma para ver lo cerca que se alinea el producto final con la precisión pixel-perfect del diseño.",
         "footer.figma-button-text": "Ver diseño en Figma",
         "footer.copyright": "Diseñado y desarrollado por Matías Medina.",
-        "footer.built-with": "Construído con Astro y Tailwind CSS.",
+        "footer.built-with": "Construído con Astro, Vanilla JS y Tailwind CSS.",
     },
     pt: {
         // Site translations
@@ -254,6 +254,6 @@ export const ui = {
         "footer.figma-description": "Curioso sobre o processo de design? Compare este site com seu design no Figma para ver quão alinhado está o produto final com a precisão pixel-perfect.",
         "footer.figma-button-text": "Ver design no Figma",
         "footer.copyright": "Projetado & Desenvolvido por Matías Medina.",
-        "footer.built-with": "Construído com Astro e Tailwind CSS.",
+        "footer.built-with": "Construído com Astro, Vanilla JS e Tailwind CSS.",
     },
 };
