@@ -1,7 +1,9 @@
 ---
+import { AstroSeo } from "@astrolib/seo";
 import SpeedInsights from "@vercel/speed-insights/astro";
 import "@fontsource-variable/inter";
 import { getLangFromUrl } from "../i18n/utils";
+import { languages } from "../i18n/ui";
 
 interface Props {
 	title: string;
@@ -9,7 +11,11 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+const SITE_URL ="https://matiasm.com"
 const lang = getLangFromUrl(Astro.url);
+const languageAlternates = Object.keys(languages)
+	.filter((l) => l !== lang)
+	.map((hrefLang) => ({ hrefLang, href: `https://matiasm.com/${hrefLang}/` }));
 ---
 
 <!doctype html>
@@ -19,11 +25,31 @@ const lang = getLangFromUrl(Astro.url);
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<link rel="icon" href="/favicon.ico" sizes="any">
+		<link rel="icon" href="/favicon.ico" sizes="any" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
-		<title>{title}</title>
 	</head>
 	<body>
+		<AstroSeo
+			title={title}
+			description={description}
+			canonical=`${SITE_URL}/${lang}/`
+			languageAlternates={languageAlternates}
+			openGraph={{
+				type: "website",
+				locale: lang,
+				url: SITE_URL,
+				site_name: "Matías Medina - React Developer",
+				images: [
+					{
+						url: `${SITE_URL}/profile-pic.webp`,
+						width: 800,
+						height: 600,
+						alt: "Matías Medina - React Developer",
+					},
+				],
+			}}
+			,
+		/>
 		<SpeedInsights />
 		<slot />
 		<script src="/taos.min.js" is:inline></script>
