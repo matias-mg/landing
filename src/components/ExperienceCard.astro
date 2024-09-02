@@ -17,6 +17,7 @@ const lang = getLangFromUrl(Astro.url);
 const dateFormater = new Intl.DateTimeFormat(lang, {
     year: "numeric",
     month: "long",
+    timeZone: "UTC"
 }).format;
 ---
 
