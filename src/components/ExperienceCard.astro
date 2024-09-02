@@ -1,21 +1,40 @@
 ---
 import { getLangFromUrl } from "../i18n/utils";
 
-const { jobTitle, company, from, to, description, techList, right = true } = Astro.props;
+const {
+    jobTitle,
+    company,
+    from,
+    to,
+    description,
+    techList,
+    right = true,
+    classStyles = "",
+    ...props
+} = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
-const dateFormater = new Intl.DateTimeFormat(lang, { year: 'numeric', month: 'long' }).format
+const dateFormater = new Intl.DateTimeFormat(lang, {
+    year: "numeric",
+    month: "long",
+}).format;
 ---
 
 <div
-    class={`${right ? "right-0" : "left-0"} w-full max-w-[640px] bg-slate-900 m-auto -mt-10 p-4 py-5 h-fit rounded-lg transition-colors border-2 border-transparent hover:border-blue-950 z-30 md:mt-0 md:p-6 md:py-7 lg:absolute`}
+    class={`${right ? "right-0" : "left-0"} w-full max-w-[640px] bg-slate-900 m-auto -mt-10 p-4 py-5 h-fit rounded-lg transition-all border-2 border-slate-900 hover:border-blue-950 z-30 md:mt-0 md:p-6 md:py-7 lg:absolute ${classStyles}`}
+    {...props}
 >
-    <h3 class="flex flex-col text-blue-50 font-normal text-xl sm:flex-row sm:items-center">
+    <h3
+        class="flex flex-col text-blue-50 font-normal text-xl sm:flex-row sm:items-center"
+    >
         {jobTitle}
-        <span class="text-blue-600 text-base font-medium sm:ml-2">• {company}</span
+        <span class="text-blue-600 text-base font-medium sm:ml-2"
+            >• {company}</span
         >
     </h3>
-    <p class="text-gray-500 font-light text-sm">{dateFormater(from)} – {dateFormater(to)}</p>
+    <p class="text-gray-500 font-light text-sm">
+        {dateFormater(from)} – {dateFormater(to)}
+    </p>
     <p class="my-4 font-light text-pretty leading-5">{description}</p>
     <div class="flex flex-wrap gap-2">
         {

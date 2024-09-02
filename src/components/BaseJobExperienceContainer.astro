@@ -10,12 +10,20 @@ const {
     description,
     techList,
 } = Astro.props;
+
+const TAOS_IMG_CLASSES =
+    `delay-[100ms] duration-[600ms] ${right ? "taos:translate-x-[50px]" : "taos:translate-x-[-50px]"} taos:opacity-0 [animation-iteration-count:infinite]`;
+const TAOS_EXPERIENCE_CONTAINER_CLASSES =
+    `delay-[130ms] duration-[900ms] ${right ? "taos:translate-x-[50px]" : "taos:translate-x-[-50px]"} taos:opacity-0 [animation-iteration-count:infinite]`;
 ---
 
 <div
-    class="flex flex-col items-center justify-between w-full lg:relative lg:flex-row"
+    class={`flex flex-col items-center justify-between w-full lg:relative lg:flex-row`}
 >
-    <div class={`relative w-full lg:max-w-[768px] ${!right && "ml-auto"} group`}>
+    <div
+        class={`relative w-full lg:max-w-[768px] ${!right && "ml-auto"} ${TAOS_IMG_CLASSES}`}
+        data-taos-offset="50"
+    >
         <div
             class="opacity-0 lg:opacity-40 absolute inset-0 bg-slate-950 transition-opacity z-10 group-hover:opacity-0 group-active:opacity-0"
         >
@@ -30,5 +38,7 @@ const {
         to={to}
         description={description}
         techList={techList}
+        classStyles={TAOS_EXPERIENCE_CONTAINER_CLASSES}
+        data-taos-offset="50"
     />
 </div>
