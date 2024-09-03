@@ -1,0 +1,52 @@
+---
+import HoverButton from "../components/HoverButton.astro";
+import { defaultLang } from "../i18n/ui";
+import { useTranslations } from "../i18n/utils";
+import Layout from "../layouts/Layout.astro";
+
+const localeToUse = Astro.preferredLocale || Astro.currentLocale || defaultLang;
+const t = useTranslations(localeToUse);
+---
+
+<Layout title={t("page.404-title")} description={t("page.404-description")}>
+  <div
+    class="min-h-screen flex items-center justify-center bg-slate-900 text-blue-300"
+  >
+    <div class="w-full max-w-2xl px-4 py-8 text-center">
+      <div class="relative inline-block">
+        <h1 class="text-9xl font-extrabold text-blue-600 mb-4">404</h1>
+        <div
+          class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 border-4 border-blue-600 rounded-full"
+        >
+        </div>
+        <div
+          class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 border-4 border-blue-600 rounded-full"
+        >
+        </div>
+        <div
+          class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-blue-600 rounded-full"
+        >
+        </div>
+      </div>
+      <h2 class="text-4xl font-bold text-blue-50 mb-4">{t("404.title")}</h2>
+      <p class="text-xl mb-8">{t("404.description")}</p>
+      <div class="flex justify-center space-x-4 mb-8">
+        {
+          [1, 2, 3].map((n) => (
+            <div
+              class="w-3 h-3 bg-blue-600 rounded-full animate-bounce"
+              style={{ animationDelay: `${n * 0.1}s` }}
+            />
+          ))
+        }
+      </div>
+      <HoverButton
+        href="/"
+        target="_self"
+        classStyles="bg-blue-600 bg-opacity-10 max-w-2xl mx-auto py-4"
+      >
+        {t("404.button-text")}
+      </HoverButton>
+    </div>
+  </div>
+</Layout>

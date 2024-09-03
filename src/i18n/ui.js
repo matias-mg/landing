@@ -11,6 +11,8 @@ export const ui = {
         // Site translations
         "site.title": "Matías Medina - React Web Developer and frontend expert",
         "site.description": "Matías Medina, specialized on web development with 4 years of experience in React and team leadership skills.",
+        "site.404-title": "Matías Medina - Page not found",
+        "site.404-description": "This route has not been found.",
         // Header translations
         "header.about-me": "About me",
         "header.experience": "Experience",
@@ -89,11 +91,17 @@ export const ui = {
         "footer.figma-button-text": "View Figma Design",
         "footer.copyright": "Designed & Developed by Matías Medina.",
         "footer.built-with": "Built with Astro, Vanilla JS and Tailwind CSS.",
+        // 404 page translations
+        "404.title": "Page Not Found",
+        "404.description": "Oops! It seems you've wandered into a corrupted shrine.",
+        "404.button-text": "Teleport to the last visited Hyrule Shrine",
     },
     es: {
         // Site translations
         "site.title": "Matías Medina - Desarrollador Web React y experto en frontend",
         "site.description": "Matías Medina, especializado en desarrollo web con 4 años de experiencia en React y habilidades de liderazgo de equipo.",
+        "site.404-title": "Matías Medina - Página no encontrada",
+        "site.404-description": "Esta ruta no ha sido encontrada.",
         // Header translations
         "header.about-me": "Sobre mí",
         "header.experience": "Experiencia",
@@ -172,11 +180,17 @@ export const ui = {
         "footer.figma-button-text": "Ver diseño en Figma",
         "footer.copyright": "Diseñado y desarrollado por Matías Medina.",
         "footer.built-with": "Construído con Astro, Vanilla JS y Tailwind CSS.",
+        // 404 page translations
+        "404.title": "Página no encontrada",
+        "404.description": "¡Ups! Parece que has entrado en un santuario corrupto.",
+        "404.button-text": "Teletransportar al último santuario de Hyrule visitado",
     },
     pt: {
         // Site translations
         "site.title": "Matías Medina - Desenvolvedor Web React e especialista em frontend",
         "site.description": "Matías Medina, especializado em desenvolvimento web com 4 anos de experiência em React e habilidades de liderança de equipe.",
+        "site.404-title": "Matías Medina | Página não encontrada",
+        "site.404-description": "Esta rota não foi encontrada.",
         // Header translations
         "header.about-me": "Sobre mim",
         "header.experience": "Experiência",
@@ -255,5 +269,9 @@ export const ui = {
         "footer.figma-button-text": "Ver design no Figma",
         "footer.copyright": "Projetado & Desenvolvido por Matías Medina.",
         "footer.built-with": "Construído com Astro, Vanilla JS e Tailwind CSS.",
+        // 404 page translations
+        "404.title": "Página Não Encontrada",
+        "404.description": "Ops! Parece que você entrou em um santuário corrompido.",
+        "404.button-text": "Teletransporte-se para o último santuário de Hyrule visitado",
     },
 };

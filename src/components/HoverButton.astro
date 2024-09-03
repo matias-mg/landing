@@ -7,13 +7,14 @@ const {
     href = "",
     ariaLabel = "",
     classStyles = "",
+    target = "_blank",
     ...props
 } = Astro.props;
 ---
 
 <a
     href={href}
-    target="_blank"
+    target={target}
     rel="noopener noreferrer"
     aria-label={ariaLabel}
     {...props}
