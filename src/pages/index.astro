@@ -1,1 +1,6 @@
-<meta http-equiv="refresh" content="0;url=/en/" />
+---
+import { defaultLang } from "../i18n/ui";
+
+const localeToUse = Astro.preferredLocale || Astro.currentLocale || defaultLang;
+---
+<meta http-equiv="refresh" content={`0;url=/${localeToUse}/`} />
