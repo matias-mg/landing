@@ -21,7 +21,7 @@ const dateFormater = new Intl.DateTimeFormat(lang, {
 }).format;
 ---
 
-<div
+<article
     class={`${right ? "right-0" : "left-0"} w-full max-w-[640px] bg-slate-900 m-auto -mt-10 p-4 py-5 h-fit rounded-lg transition-all border-2 border-slate-900 hover:border-blue-950 z-30 md:mt-0 md:p-6 md:py-7 lg:absolute ${classStyles}`}
     {...props}
 >
@@ -33,9 +33,9 @@ const dateFormater = new Intl.DateTimeFormat(lang, {
             >• {company}</span
         >
     </h3>
-    <p class="text-gray-500 font-light text-sm">
+    <time class="text-gray-500 font-light text-sm">
         {dateFormater(from)} – {dateFormater(to)}
-    </p>
+    </time>
     <p class="my-4 font-light text-pretty leading-5">{description}</p>
     <div class="flex flex-wrap gap-2">
         {
@@ -48,4 +48,4 @@ const dateFormater = new Intl.DateTimeFormat(lang, {
             ))
         }
     </div>
-</div>
+</article>
