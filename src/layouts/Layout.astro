@@ -11,11 +11,12 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-const SITE_URL ="https://matiasm.com"
+const SITE_URL = "https://matiasm.com";
 const lang = getLangFromUrl(Astro.url);
-const languageAlternates = Object.keys(languages)
-	.filter((l) => l !== lang)
-	.map((hrefLang) => ({ hrefLang, href: `https://matiasm.com/${hrefLang}/` }));
+const languageAlternates = Object.keys(languages).map((hrefLang) => ({
+	hrefLang,
+	href: `${SITE_URL}/${hrefLang}/`,
+}));
 ---
 
 <!doctype html>
@@ -37,7 +38,7 @@ const languageAlternates = Object.keys(languages)
 			openGraph={{
 				type: "website",
 				locale: lang,
-				url: SITE_URL,
+				url: `${SITE_URL}/${lang}/`,
 				site_name: "Matías Medina - React Developer",
 				images: [
 					{

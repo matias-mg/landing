@@ -1,9 +1,8 @@
 {
-  "trailingSlash": true,
   "redirects": [
     {
-      "source": "/:path*",
-      "destination": "/:path*/",
+      "source": "/:lang(en|es|pt)",
+      "destination": "/:lang/", 
       "permanent": true
     }
   ]
