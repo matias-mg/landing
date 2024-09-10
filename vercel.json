@@ -1,0 +1,10 @@
+{
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "destination": "/:path*/",
+      "permanent": true
+    }
+  ]
+}
