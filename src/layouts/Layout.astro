@@ -33,7 +33,7 @@ const languageAlternates = Object.keys(languages).map((hrefLang) => ({
 		<AstroSeo
 			title={title}
 			description={description}
-			canonical=`${SITE_URL}/${lang}/`
+			canonical={`${SITE_URL}/${lang}/`}
 			languageAlternates={languageAlternates}
 			openGraph={{
 				type: "website",
