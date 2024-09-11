@@ -1,8 +1,8 @@
 {
   "redirects": [
     {
-      "source": "/:lang(en|es|pt)",
-      "destination": "/:lang/", 
+      "source": "/en",
+      "destination": "/",
       "permanent": true
     }
   ]
