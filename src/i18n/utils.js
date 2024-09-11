@@ -11,3 +11,7 @@ export function useTranslations(lang) {
     return ui[lang][key] || ui[defaultLang][key];
   }
 }
+
+export function getLocalizedUrl(lang) {
+  return lang === defaultLang ? '' : `${lang}/`;
+}

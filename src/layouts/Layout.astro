@@ -2,8 +2,9 @@
 import { AstroSeo } from "@astrolib/seo";
 import SpeedInsights from "@vercel/speed-insights/astro";
 import "@fontsource-variable/inter";
-import { getLangFromUrl } from "../i18n/utils";
+import { getLangFromUrl, getLocalizedUrl } from "../i18n/utils";
 import { languages } from "../i18n/ui";
+import { SITE_URL } from "../utils/constants";
 
 interface Props {
 	title: string;
@@ -11,11 +12,11 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-const SITE_URL = "https://matiasm.com";
 const lang = getLangFromUrl(Astro.url);
+const transformedSiteURL = `${SITE_URL}/${getLocalizedUrl(lang)}`
 const languageAlternates = Object.keys(languages).map((hrefLang) => ({
-	hrefLang,
-	href: `${SITE_URL}/${hrefLang}/`,
+  hrefLang,
+  href: `${SITE_URL}/${getLocalizedUrl(hrefLang)}`,
 }));
 ---
 
@@ -33,12 +34,12 @@ const languageAlternates = Object.keys(languages).map((hrefLang) => ({
 		<AstroSeo
 			title={title}
 			description={description}
-			canonical={`${SITE_URL}/${lang}/`}
+			canonical={transformedSiteURL}
 			languageAlternates={languageAlternates}
 			openGraph={{
 				type: "website",
 				locale: lang,
-				url: `${SITE_URL}/${lang}/`,
+				url: transformedSiteURL,
 				site_name: "Matías Medina - React Developer",
 				images: [
 					{
@@ -49,7 +50,6 @@ const languageAlternates = Object.keys(languages).map((hrefLang) => ({
 					},
 				],
 			}}
-			,
 		/>
 		<SpeedInsights />
 		<slot />
