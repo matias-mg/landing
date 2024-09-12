@@ -7,7 +7,15 @@ import robotsTxt from 'astro-robots-txt';
 // https://astro.build/config
 export default defineConfig({
   site: "https://matiasm.com",
-  integrations: [tailwind(), robotsTxt(), sitemap({
+  integrations: [tailwind(), robotsTxt({
+    policy: [
+      {
+        userAgent: '*',
+        disallow: '/cvs/',
+        allow: '/',
+      }
+    ]
+  }), sitemap({
     i18n: {
       defaultLocale: "en",
       locales: {
