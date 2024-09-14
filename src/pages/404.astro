@@ -8,7 +8,11 @@ const localeToUse = Astro.preferredLocale || Astro.currentLocale || defaultLang;
 const t = useTranslations(localeToUse);
 ---
 
-<Layout title={t("page.404-title")} description={t("page.404-description")}>
+<Layout
+  title={t("page.404-title")}
+  description={t("page.404-description")}
+  blockCanonical
+>
   <div
     class="min-h-screen flex items-center justify-center bg-slate-900 text-blue-300"
   >

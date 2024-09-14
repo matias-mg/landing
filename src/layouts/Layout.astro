@@ -6,12 +6,8 @@ import { getLangFromUrl, getLocalizedUrl } from "../i18n/utils";
 import { languages } from "../i18n/ui";
 import { SITE_URL } from "../utils/constants";
 
-interface Props {
-	title: string;
-	description: string;
-}
+const { title, description, blockCanonical = false } = Astro.props;
 
-const { title, description } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const transformedSiteURL = `${SITE_URL}/${getLocalizedUrl(lang)}`
 const languageAlternates = Object.keys(languages).map((hrefLang) => ({
@@ -34,7 +30,7 @@ const languageAlternates = Object.keys(languages).map((hrefLang) => ({
 		<AstroSeo
 			title={title}
 			description={description}
-			canonical={transformedSiteURL}
+			canonical={!blockCanonical && transformedSiteURL}
 			languageAlternates={languageAlternates}
 			openGraph={{
 				type: "website",
