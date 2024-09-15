@@ -9,10 +9,10 @@ import { SITE_URL } from "../utils/constants";
 const { title, description, blockCanonical = false } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
-const transformedSiteURL = `${SITE_URL}/${getLocalizedUrl(lang)}`
+const transformedSiteURL = `${SITE_URL}${getLocalizedUrl(lang)}`;
 const languageAlternates = Object.keys(languages).map((hrefLang) => ({
-  hrefLang,
-  href: `${SITE_URL}/${getLocalizedUrl(hrefLang)}`,
+	hrefLang,
+	href: `${SITE_URL}${getLocalizedUrl(hrefLang)}`,
 }));
 ---
 
@@ -21,7 +21,7 @@ const languageAlternates = Object.keys(languages).map((hrefLang) => ({
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
 		<link rel="icon" href="/favicon.ico" sizes="any" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
@@ -32,8 +32,9 @@ const languageAlternates = Object.keys(languages).map((hrefLang) => ({
 			description={description}
 			canonical={!blockCanonical && transformedSiteURL}
 			languageAlternates={languageAlternates}
+			noindex={false}
+			nofollow={false}
 			openGraph={{
-				type: "website",
 				locale: lang,
 				url: transformedSiteURL,
 				site_name: "Matías Medina - React Developer",
@@ -45,11 +46,24 @@ const languageAlternates = Object.keys(languages).map((hrefLang) => ({
 						alt: "Matías Medina - React Developer",
 					},
 				],
+				type: "profile",
+				profile: {
+					firstName: "Matías",
+					lastName: "Medina",
+					username: "matiasm",
+					gender: "male",
+				},
 			}}
+			additionalMetaTags={[
+				{
+					name: "author",
+					content: "Matías Medina",
+				},
+			]}
 		/>
 		<SpeedInsights />
 		<slot />
-		<script src="/taos.min.js" is:inline></script>
+		<script src="/taos.min.js" is:inline defer></script>
 	</body>
 </html>
 

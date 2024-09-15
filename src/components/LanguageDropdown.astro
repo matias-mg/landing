@@ -1,6 +1,6 @@
 ---
 import { getLangFromUrl, getLocalizedUrl } from "../i18n/utils";
-import { languages } from "../i18n/ui";
+import { defaultLang, languages } from "../i18n/ui";
 import CheckIcon from "../components/icons/CheckIcon.astro";
 
 const { id = "", classStyles = "", ...props } = Astro.props;
@@ -19,7 +19,7 @@ const lang = getLangFromUrl(Astro.url);
 >
 {Object.entries(languages).map(([langKey, label]) => (
     <a
-        href={`/${getLocalizedUrl(langKey)}`}
+        href={`${langKey === defaultLang ? '/' : getLocalizedUrl(langKey)}`}
         class={`py-2 px-4 flex items-center cursor-pointer hover:text-blue-100 ${lang === langKey && "text-blue-600"} ${lang === langKey && "pointer-events-none"}`}
         role="option"
         tabindex="-1"
