@@ -1,6 +1,5 @@
 ---
 import { AstroSeo } from "@astrolib/seo";
-import SpeedInsights from "@vercel/speed-insights/astro";
 import "@fontsource-variable/inter";
 import { getLangFromUrl, getLocalizedUrl } from "../i18n/utils";
 import { languages } from "../i18n/ui";
@@ -61,7 +60,6 @@ const languageAlternates = Object.keys(languages).map((hrefLang) => ({
 				},
 			]}
 		/>
-		<SpeedInsights />
 		<slot />
 		<script src="/taos.min.js" is:inline defer></script>
 	</body>
