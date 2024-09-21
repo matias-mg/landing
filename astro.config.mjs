@@ -30,9 +30,6 @@ export default defineConfig({
     defaultLocale: "en",
     locales: ["en", "es", "pt"],
   },
-  image: {
-    service: passthroughImageService()
-  },
   output: 'server',
   adapter: vercel({
     webAnalytics: { enabled: true }
